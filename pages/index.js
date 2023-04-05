@@ -7,7 +7,7 @@ export default function Calculator() {
 
 	// data to map through
 
-	const barbells = [15, 35, 45]
+	const barbells = [45, 35, 15]
 
 	const smallPlates = [
 		{
