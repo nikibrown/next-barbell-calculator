@@ -132,6 +132,7 @@ main {
 
 
 .barbell-weights {
+	margin: 40px 0;
 	height: 120px;
 	display: flex;
 	align-items: center;
@@ -156,6 +157,7 @@ main {
 .weights {
 	display: flex;
 	position: relative;
+	align-items: center;
 }
 
 
@@ -200,27 +202,31 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 40px;
 	height: 120px;
 	z-index: 1;
 	border: 1px solid #fff;
+	font-size: 12px;
 }
 
 
 .barbell-plate-55 {
-	background-color: red;
+	background-color: #dc3545;
+	width: 55px;
 }
 
 .barbell-plate-45 {
-	background-color: blue;
+	background-color: #0d6efd;
+	width: 45px;
 }
 
 .barbell-plate-35 {
-	background-color: yellow;
+	background-color: #ffc107;
+	width: 35px
 }
 
 .barbell-plate-25 {
-	background-color: green;
+	background-color: #157347;
+	width: 25px;
 }
 
 .barbell-plate-15 {
@@ -233,4 +239,26 @@ main {
 .barbell-plate-10 {
 	background-color: black;
 	width: 20px;
+}
+
+.barbell-plate-5 {
+	background-color: black;
+	width: 15px;
+	height: 60px;
+}
+
+.barbell-plate-1 {
+	background-color: black;
+	width: 10px;
+	height: 60px;
+}
+
+[class*="barbell-plate-0"] {
+	background-color: black;
+	width: 10px;
+	height: 60px;
+}
+
+[class*="barbell-plate-0"] .weight-number {
+	transform: rotate(90deg);
 }

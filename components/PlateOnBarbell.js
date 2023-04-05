@@ -6,7 +6,7 @@ export default function PlateOnBarbell({weightNum, onPress, disableBarbell, rese
 
     return (
         <span className={`barbell-plate barbell-plate-${weightNum}`}>
-            <span>{weightNum}</span>
+            <span class="weight-number">{weightNum}</span>
         </span>
     )
 }
