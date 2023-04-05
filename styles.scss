@@ -1,5 +1,5 @@
 .app {
-	margin: 0 auto;
+	margin: 30px auto;
 	width: 50vw;
 }
 
@@ -15,21 +15,26 @@ main {
 }
 
 .weight-lg {
-	min-width: 70px;
-	min-height: 70px;
+	min-width: 90px;
+	min-height: 90px;
 }
 
 .weight-sm {
-	min-width: 50px;
-	min-height: 50px;
+	min-width: 60px;
+	min-height: 60px;
 }
 
 .btn {
 	position: relative;
+	margin: 0.25rem 0.5rem;
 }
 
 .btn:hover {
 	cursor: pointer;
+}
+
+.btn:disabled {
+	cursor: not-allowed!important;
 }
 
 .btn-plate {
@@ -38,9 +43,6 @@ main {
 	margin: 10px;
 }
 
-
-
-
 .btn:focus,
 .btn:active,
 .btn:not([disabled]):not(.disabled):active {
@@ -48,12 +50,12 @@ main {
 }
 
 .btn .badge {
-	position: absolute;
-	bottom: -5px;
-	right: -5px;
+	// position: absolute;
+	// bottom: -5px;
+	// right: -5px;
 	z-index: 10;
-	top: auto;
-	height: 19px;
+	// top: auto;
+	// height: 19px;
 }
 
 @media screen and (max-width: 900px) {
@@ -126,4 +128,109 @@ main {
 
 .btn-dark.btn-barbell-15:hover {
 	border-color: var(--gray);
+}
+
+
+.barbell-weights {
+	height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 50px 0;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+	&:after {
+		content:  "";
+		width: 100%;
+		height: 15px;
+		background-color: gray;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		z-index: -1;
+	}
+}
+
+.weights {
+	display: flex;
+	position: relative;
+}
+
+
+.left-weights {
+	margin-left: 20px;
+	
+	&.show-clips {
+		&:before {
+			content: "";
+			background: linear-gradient(0deg, #eee 0%, #eee 35%, #000 35%, #000 100%);			
+			width: 12px;
+			height: 40px;
+			position: absolute;
+			left: -15px;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 1;
+		}
+	}
+}
+
+
+.right-weights {	
+	margin-right: 20px;
+	&.show-clips {
+		&:after {
+			content: "";
+			background: linear-gradient(0deg, #eee 0%, #eee 35%, #000 35%, #000 100%);
+			width: 12px;
+			height: 40px;
+			position: absolute;
+			right: -15px;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 1;
+		}
+	}
+}
+
+.barbell-plate {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 120px;
+	z-index: 1;
+	border: 1px solid #fff;
+}
+
+
+.barbell-plate-55 {
+	background-color: red;
+}
+
+.barbell-plate-45 {
+	background-color: blue;
+}
+
+.barbell-plate-35 {
+	background-color: yellow;
+}
+
+.barbell-plate-25 {
+	background-color: green;
+}
+
+.barbell-plate-15 {
+	background-color: black;
+	width: 20px;
+}
+
+
+
+.barbell-plate-10 {
+	background-color: black;
+	width: 20px;
 }

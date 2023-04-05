@@ -1,230 +1,184 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.css"
+import { useState } from "react";
+import Plate from "../components/Plate"
+import Barbell from "../components/Barbell"
+import PlateOnBarbell from "../components/PlateOnBarbell"
 
 export default function Calculator() {
+
+	// data to map through
+
+	const barbells = [15, 35, 45]
+
+	const smallPlates = [
+		{
+			weight: 5,
+			styles: "btn-dark weight-sm"
+		},
+		{
+			weight: 1,
+			styles: "btn-dark weight-sm"
+		},
+		{
+			weight: .75,
+			styles: "btn-dark weight-sm"
+		},
+		{
+			weight: .5,
+			styles: "btn-dark weight-sm"
+		},
+		{
+			weight: .25,
+			styles: "btn-dark weight-sm"
+		}
+	]
+
+	const largePlates = [
+		{
+			weight: 55, 
+			styles: "btn-danger weight-lg"
+		},
+		{
+			weight: 45, 
+			styles: "btn-primary weight-lg"
+		},
+		{
+			weight: 35, 
+			styles: "btn-warning weight-lg"
+		},
+		{
+			weight: 25, 
+			styles: "btn-success weight-lg"
+		},
+		{
+			weight: 15, 
+			styles: "btn-dark weight-lg"
+		},
+		
+		{
+			weight: 10, 
+			styles: "btn-dark weight-lg"
+		}
+	]
 
 	// add up the total weight
 	const [weight, setWeight] = useState(0)
 
-	// Pounds or Kilos
-	const [unit, setUnits] = useState("Pounds")
+	// store clicked plates in a state array
+	const [platesOnBarbell, setPlatesOnBarbell] = useState([])
+
+	const [platesOnBarbellReversed, setPlatesOnBarbellReversed] = useState([])
+
+	const [showClips, setShowClips] = useState(false)
+	
+
+	// state of barbells - disable after barbell is selected - false by default
+	const [disableBarbell, setBarbell] = useState(false)
+
+	// reset button
+	const [reset, setReset] = useState(false)
 
 
 	const addWeight = (weightPlate) => {
-		// weightPlate * 2 as we load the barbell evenly
 		setWeight(weight + (weightPlate * 2 ))
-		// setIsClicked(true)
-		// setPlateCount(plateCount + 2)
+		// adds the clicked weightPlate to the end of the platesOnBarbell array
+		setPlatesOnBarbell(current => [...current, weightPlate]);
+		// adds the clicked weightPlate to the beginning of the platesOnBarbell array
+		setPlatesOnBarbellReversed(current => [weightPlate, ...current]);
+		setShowClips(true)
 	}
 
 	const addBarbellWeight = (barbellWeight) => {
 		setWeight(weight + barbellWeight)
+		setBarbell(true)
 	}
 
-	const reset = () =>{
+	const resetEverything = () => {
+		setReset(true)
 		setWeight(0)
-		setUnits(null)
-		// how to reset plateCount inside of <Plate />?
+		setBarbell(false)
+		setPlatesOnBarbell([])
+		setPlatesOnBarbellReversed([])
+		setShowClips(false)
 	}
-
+	
 	return (
 		<div className="app text-center position-relative">
-
-			{/* {unit} */}
-
-			<button className="reset btn btn-small btn-danger position-absolute top-0 end-0" onClick={reset}>Reset</button>
+			<button 
+				className="reset btn btn-small btn-danger position-absolute top-0 end-0" 
+				onClick={() => resetEverything()}>
+				Reset
+			</button>
 
 			<h1>
-				{weight} 
-				{/* <span className="pounds">lb</span><span className="kilos">kg</span> */}
-			
+				{weight}<small>lb</small>
 			</h1>
+			<div className="barbell-weights">
+				
+				<div className={showClips ? "left-weights weights show-clips" : "left-weights weights "}>
 
-			{/* <h2>Units of Measurement</h2>
+					{platesOnBarbellReversed.map((weightNum, index) => (
+						<PlateOnBarbell 
+							weightNum={weightNum}
+							key={index}
+						/>
+					))}
+				</div>
 
-			<button 
-				type="button"
-				className="btn btn-secondary"
-				onClick={() => setUnits("Pounds")}
-			>
-        		Pounds
-      		</button>
+				<div className={showClips ? "right-weights weights show-clips" : "left-weights weights "}>
+					{platesOnBarbell.map((weightNum, index) => (
+						<PlateOnBarbell 
+							weightNum={weightNum}
+							key={index}
+						/>
+					))}
+					
+				</div>
 
-			  <button 
-				type="button"
-				className="btn btn-secondary"
-				onClick={() => setUnits("Kilos")}
-			>
-        		Kilos
-      		</button> */}
+			</div>
 
 			<h2>Barbells</h2>
 
-			<button 
-				type="button"
-				className="btn btn-secondary"
-				onClick={() => addBarbellWeight(45)}>
-        		45 Barbell
-      		</button>
-
-			<button
-				type="button"
-				className="btn btn-secondary"
-				onClick={() => addBarbellWeight(35)}
-			>
-        		35 Barbell
-      		</button>
-
-			  <button
-				type="button"
-				className="btn btn-secondary"
-				onClick={() => addBarbellWeight(15)}
-			>
-        		15 Barbell
-      		</button>
+			{barbells.map((barbellWeight, index) => (
+				<Barbell
+					weightNum={barbellWeight}
+					onPress={() => {addBarbellWeight(barbellWeight)}}
+					disableBarbell={disableBarbell}
+					reset={reset}
+					setReset={setReset}
+					key={index}
+				/>
+			))}
 
 			<h2>Plates</h2>
 
-			<Plate
-				classNames="btn btn-dark position-relative"
-				weightNum={10}
-				onPress={() => addWeight(10)}
-			/>
+			<div>
+				{largePlates.map((plate, index) => (
+					<Plate
+						classNames={`btn btn-plate position-relative ${plate.styles}`}
+						weightNum={plate.weight}
+						onPress={() => addWeight(plate.weight)}
+						reset={reset}
+						setReset={setReset}
+						key={index}
+					/>
+				))}
 
-			<Plate
-				classNames="btn btn-success position-relative"
-				weightNum={25}
-				onPress={() => addWeight(25)}
-			/>
+			</div>
 
-			<Plate
-				classNames="btn btn-primary position-relative"
-				weightNum={45}
-				onPress={() => addWeight(45)}
-			/>
+			<div>
 
-			<Plate
-				classNames="btn btn-danger position-relative"
-				weightNum={55}
-				onPress={() => addWeight(55)}
-			/>
+				{smallPlates.map((plate, index) => (
+					<Plate
+						classNames={`btn btn-plate position-relative ${plate.styles}`}
+						weightNum={plate.weight}
+						onPress={() => addWeight(plate.weight)}
+						reset={reset}
+						setReset={setReset}
+						key={index}
+					/>
+				))}
+			</div>
+			
 		</div>
 	)
 }
-
-export function Plate({weightNum, onPress, classNames}) {
-	// count of each type of plates = how to get this per plate?
-	const [plateCount, setPlateCount] = useState(0)
-
-	const updatePlate = () => {
-		setPlateCount(plateCount + 2)
-	}
-
-	return (
-		<span 
-			style={{display: "inline-block"}}
-			onClick={updatePlate}
-		>
-			<button 
-				type="button"
-				className={classNames}
-				onClick={onPress}
-			>
-				{weightNum}
-				
-				{ plateCount > 0 ? <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">{plateCount}</span> : null }	
-
-	  		</button>
-		</span>
-	)
-}
-
-{/* <button 
-				className="btn btn-dark position-relative" 
-				// onClick={() => addWeight(.25)}
-
-				onClick={() => setPlateCount(plateCount + 2)}
-			>
-        		+ .25 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-			<button 
-				className="btn btn-dark position-relative" 
-				onClick={() => addWeight(.5)}
-			>
-        		+ .5 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-			<button 
-				className="btn btn-dark position-relative" 
-				onClick={() => addWeight(.75)}
-			>
-        		+ .75 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-			<button 
-				className="btn btn-dark position-relative" 
-				onClick={() => addWeight(1)}
-			>
-        		+ 1 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-
-			<button 
-				className="btn btn-dark position-relative" 
-				onClick={() => addWeight(2.5)}
-			>
-        		+ 2.5 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-
-			<button 
-				className={isClicked ? "active btn btn-dark position-relative " : "btn btn-dark position-relative"}
-				onClick={() => addWeight(5)}
-				
-			>
-        		+ 5 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-			<button 
-				className="btn btn-dark position-relative"
-				onClick={() => addWeight(10)}>
-        		+ 10 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-			<button 
-				className="btn btn-dark position-relative"
-			  	onClick={() => addWeight(15)}>
-        		+ 15 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-			<button 
-				className="btn btn-success position-relative"
-				onClick={() => addWeight(25)}>
-        		+ 25 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-			<button 
-				className="btn btn-warning position-relative"
-				onClick={() => addWeight(35)}>
-        		+ 35 <span className="pounds">lb</span><span className="kilos">kg</span>
-      		</button>
-
-			<button
-				className="btn btn-primary position-relative"
-				onClick={() => addWeight(45)}>
-        		+ 45 <span className="pounds">lb</span><span className="kilos">kg</span>
-				<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">{plateCount}</span>
-			</button> */}
-
-			
-
-			{/* <button 
-				className="btn btn-danger position-relative"
-				onClick={() => addWeight(55)}
-			>
-        		+ 55 <span className="pounds">lb</span><span className="kilos">kg</span>
-
-				
-
-      		</button> */}
