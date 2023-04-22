@@ -1,86 +1,90 @@
 .app {
-	margin: 30px auto;
-	width: 50vw;
+    margin: 30px auto;
+    width: 50vw;
 }
 
 @media screen and (max-width: 900px) {
-	.app {
-		margin: 0 auto;
-		width: 95%;
-	}
+    .app {
+        margin: 0 auto;
+        width: 95%;
+    }
 }
 
 main {
-	margin: 20px 0;
+    margin: 20px 0;
 }
 
 .weight-lg {
-	min-width: 90px;
-	min-height: 90px;
+    min-width: 90px;
+    min-height: 90px;
 }
 
 .weight-sm {
-	min-width: 60px;
-	min-height: 60px;
+    min-width: 60px;
+    min-height: 60px;
 }
 
 .btn {
-	position: relative;
-	margin: 0.25rem 0.5rem;
+    position: relative;
+    margin: 0.25rem 0.5rem;
 }
 
 .btn:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .btn:disabled {
-	cursor: not-allowed!important;
+    cursor: not-allowed !important;
 }
 
 .btn-plate {
-	border-radius: 50%;
-	border: none;
-	margin: 10px;
+    border-radius: 50%;
+    border: none;
+    margin: 10px;
 }
 
 .btn:focus,
 .btn:active,
 .btn:not([disabled]):not(.disabled):active {
-	box-shadow: none!important;
+    box-shadow: none !important;
 }
 
 .btn .badge {
-	// position: absolute;
-	// bottom: -5px;
-	// right: -5px;
-	z-index: 10;
-	// top: auto;
-	// height: 19px;
+    // position: absolute;
+    // bottom: -5px;
+    // right: -5px;
+    z-index: 10;
+    // top: auto;
+    // height: 19px;
+    &.plate-count-badge {
+        left: 80%;
+        top: 10px;
+    }
 }
 
 @media screen and (max-width: 900px) {
-	.btn-plate.weight-lg,
-	.btn-plate.weight-sm {
-		font-size: 14px;
-		min-width: 39px;
-		min-height: 39px;
-		margin: 3px;
-	}
+    .btn-plate.weight-lg,
+    .btn-plate.weight-sm {
+        font-size: 14px;
+        min-width: 39px;
+        min-height: 39px;
+        margin: 3px;
+    }
 }
 
 @media screen and (max-width: 330px) {
-	.btn-plate.weight-lg,
-	.btn-plate.weight-sm {
-		font-size: 12px;
-		min-width: 39px;
-		min-height: 39px;
-		margin: 2px;
-	}
+    .btn-plate.weight-lg,
+    .btn-plate.weight-sm {
+        font-size: 12px;
+        min-width: 39px;
+        min-height: 39px;
+        margin: 2px;
+    }
 }
 
 .btn-barbell {
-	border-width: 4px;
-	min-width: 30%;
+    border-width: 4px;
+    min-width: 30%;
 }
 
 .btn-dark:not([disabled]):not(.disabled).active,
@@ -91,177 +95,182 @@ main {
     box-shadow: none;
 }
 
-
 .btn-barbell:first-child {
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 .btn-barbell:last-child {
-	margin-left: 5px;
+    margin-left: 5px;
 }
 
 .btn-dark.btn-barbell-45:not([disabled]):not(.disabled).active,
 .btn-dark.btn-barbell-45:not([disabled]):not(.disabled):active,
-.btn-barbell-45  {
-	border-color: var(--blue);
+.btn-barbell-45 {
+    border-color: var(--blue);
 }
 
 .btn-dark.btn-barbell-45:hover {
-	border-color: #0062cc;
+    border-color: #0062cc;
 }
 
 .btn-dark.btn-barbell-35:not([disabled]):not(.disabled).active,
 .btn-dark.btn-barbell-35:not([disabled]):not(.disabled):active,
-.btn-barbell-35  {
-	border-color: var(--yellow);
+.btn-barbell-35 {
+    border-color: var(--yellow);
 }
 
 .btn-dark.btn-barbell-35:hover {
-	border-color: #d39e00;
+    border-color: #d39e00;
 }
 
 .btn-dark.btn-barbell-15:not([disabled]):not(.disabled).active,
 .btn-dark.btn-barbell-15:not([disabled]):not(.disabled):active,
-.btn-barbell-15  {
-	border-color: #ccc;
+.btn-barbell-15 {
+    border-color: #ccc;
 }
 
 .btn-dark.btn-barbell-15:hover {
-	border-color: var(--gray);
+    border-color: var(--gray);
 }
 
-
 .barbell-weights {
-	margin: 40px 0;
-	height: 120px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 50px 0;
-	width: 100%;
-	position: relative;
-	z-index: 1;
-	&:after {
-		content:  "";
-		width: 100%;
-		height: 15px;
-		background-color: gray;
-		position: absolute;
-		top: 50%;
-		left: 0;
-		transform: translateY(-50%);
-		z-index: -1;
-	}
+    margin: 40px 0;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    &:after {
+        content: "";
+        width: 100%;
+        height: 15px;
+        background-color: gray;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: -1;
+    }
 }
 
 .weights {
-	display: flex;
-	position: relative;
-	align-items: center;
+    display: flex;
+    position: relative;
+    align-items: center;
 }
-
 
 .left-weights {
-	margin-left: 20px;
-	
-	&.show-clips {
-		&:before {
-			content: "";
-			background: linear-gradient(0deg, #eee 0%, #eee 35%, #000 35%, #000 100%);			
-			width: 12px;
-			height: 40px;
-			position: absolute;
-			left: -15px;
-			top: 50%;
-			transform: translateY(-50%);
-			z-index: 1;
-			border-radius: 5px;
-		}
-	}
+    margin-left: 20px;
+
+    &.show-clips {
+        &:before {
+            content: "";
+            background: linear-gradient(
+                0deg,
+                #eee 0%,
+                #eee 35%,
+                #000 35%,
+                #000 100%
+            );
+            width: 12px;
+            height: 40px;
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            border-radius: 5px;
+        }
+    }
 }
 
-
-.right-weights {	
-	margin-right: 20px;
-	&.show-clips {
-		&:after {
-			content: "";
-			background: linear-gradient(0deg, #eee 0%, #eee 35%, #000 35%, #000 100%);
-			width: 12px;
-			height: 40px;
-			position: absolute;
-			right: -15px;
-			top: 50%;
-			transform: translateY(-50%);
-			z-index: 1;
-			border-radius: 5px;
-		}
-	}
+.right-weights {
+    margin-right: 20px;
+    &.show-clips {
+        &:after {
+            content: "";
+            background: linear-gradient(
+                0deg,
+                #eee 0%,
+                #eee 35%,
+                #000 35%,
+                #000 100%
+            );
+            width: 12px;
+            height: 40px;
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            border-radius: 5px;
+        }
+    }
 }
 
 .barbell-plate {
-	color: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 120px;
-	z-index: 1;
-	border: 1px solid #fff;
-	font-size: 12px;
-	border-radius: 5px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    z-index: 1;
+    border: 1px solid #fff;
+    font-size: 12px;
+    border-radius: 5px;
 }
 
-
 .barbell-plate-55 {
-	background-color: #dc3545;
-	width: 55px;
+    background-color: #dc3545;
+    width: 55px;
 }
 
 .barbell-plate-45 {
-	background-color: #0d6efd;
-	width: 45px;
+    background-color: #0d6efd;
+    width: 45px;
 }
 
 .barbell-plate-35 {
-	background-color: #ffc107;
-	width: 35px
+    background-color: #ffc107;
+    width: 35px;
 }
 
 .barbell-plate-25 {
-	background-color: #157347;
-	width: 25px;
+    background-color: #157347;
+    width: 25px;
 }
 
 .barbell-plate-15 {
-	background-color: black;
-	width: 20px;
+    background-color: black;
+    width: 20px;
 }
 
-
-
 .barbell-plate-10 {
-	background-color: black;
-	width: 20px;
+    background-color: black;
+    width: 20px;
 }
 
 .barbell-plate-5 {
-	background-color: black;
-	width: 15px;
-	height: 60px;
+    background-color: black;
+    width: 15px;
+    height: 60px;
 }
 
 .barbell-plate-1 {
-	background-color: black;
-	width: 10px;
-	height: 60px;
+    background-color: black;
+    width: 10px;
+    height: 60px;
 }
 
 [class*="barbell-plate-0"] {
-	background-color: black;
-	width: 10px;
-	height: 60px;
+    background-color: black;
+    width: 10px;
+    height: 60px;
 }
 
 [class*="barbell-plate-0"] .weight-number {
-	transform: rotate(90deg);
+    transform: rotate(90deg);
 }

@@ -31,7 +31,7 @@ export default function Plate({weightNum, onPress, classNames, reset, setReset }
 
 								
 				{ plateCount > 0 ? 
-					<span className="text-dark position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light border border-dark">
+					<span className="plate-count-badge text-dark position-absolute translate-middle badge rounded-pill bg-light border border-dark">
 						{plateCount}
 					</span> 
 				: null }	
