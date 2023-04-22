@@ -110,8 +110,6 @@ export default function Calculator() {
                 Reset
             </button>
 
-            <input type="text" />
-
             <h1>
                 {weight}
                 <small>lb</small>
