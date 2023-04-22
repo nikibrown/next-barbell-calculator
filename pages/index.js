@@ -6,7 +6,6 @@ import PlateOnBarbell from "../components/PlateOnBarbell"
 export default function Calculator() {
 
 	// data to map through
-
 	const barbells = [45, 35, 15]
 
 	const smallPlates = [
@@ -63,20 +62,34 @@ export default function Calculator() {
 	// add up the total weight
 	const [weight, setWeight] = useState(0)
 
+
+
+	// const toKilograms = (weight) => {
+	// 	let kiloWeight = Math.round((weight * .45359237)*10) / 10
+	// 	setWeight(kiloWeight)
+	// }
+
+	// const toPounds = (weight) => {
+	// 	let poundWeight = Math.round((weight * 2.2)*10) / 10
+	// 	setWeight(poundWeight)
+	// }
+
 	// store clicked plates in a state array
 	const [platesOnBarbell, setPlatesOnBarbell] = useState([])
 
 	const [platesOnBarbellReversed, setPlatesOnBarbellReversed] = useState([])
 
 	const [showClips, setShowClips] = useState(false)
-	
 
 	// state of barbells - disable after barbell is selected - false by default
-	const [disableBarbell, setBarbell] = useState(false)
+	const [barbell, setBarbell] = useState(false)
 
 	// reset button
 	const [reset, setReset] = useState(false)
 
+	// undo button?
+	// remove last number from setPlatesOnBarBell, first num from setPlatesOnBarbellReversed? and then subtract from setWeight?
+	// or should setWeight be an array that gets reduced?
 
 	const addWeight = (weightPlate) => {
 		setWeight(weight + (weightPlate * 2 ))
@@ -84,7 +97,7 @@ export default function Calculator() {
 		setPlatesOnBarbell(current => [...current, weightPlate]);
 		// adds the clicked weightPlate to the beginning of the platesOnBarbell array
 		setPlatesOnBarbellReversed(current => [weightPlate, ...current]);
-		setShowClips(true)
+		// setShowClips(true)
 	}
 
 	const addBarbellWeight = (barbellWeight) => {
@@ -98,8 +111,9 @@ export default function Calculator() {
 		setBarbell(false)
 		setPlatesOnBarbell([])
 		setPlatesOnBarbellReversed([])
-		setShowClips(false)
+		// setShowClips(false)
 	}
+
 	
 	return (
 		<div className="app text-center position-relative">
@@ -112,10 +126,29 @@ export default function Calculator() {
 			<h1>
 				{weight}<small>lb</small>
 			</h1>
-			<div className="barbell-weights">
-				
-				<div className={showClips ? "left-weights weights show-clips" : "left-weights weights "}>
 
+			{/* <p>Plates on barbell {platesOnBarbell }</p>
+
+			<p>Plates on barbell Reversed{platesOnBarbellReversed }</p> */}
+
+			{/* <button 
+				className="btn btn-small btn-danger" 
+				onClick={() => toKilograms(weight)}>
+				To kilos
+			</button>
+
+			<button 
+				className="btn btn-small btn-danger" 
+				onClick={() => toPounds(weight)}>
+				To pounds
+			</button> */}
+
+
+			
+			
+			
+			<div className="barbell-weights">
+				<div className={showClips ? "left-weights weights show-clips" : "left-weights weights "}>
 					{platesOnBarbellReversed.map((weightNum, index) => (
 						<PlateOnBarbell 
 							weightNum={weightNum}
@@ -123,18 +156,16 @@ export default function Calculator() {
 						/>
 					))}
 				</div>
-
-				<div className={showClips ? "right-weights weights show-clips" : "left-weights weights "}>
+				<div className={showClips ? "right-weights weights show-clips" : "right-weights weights "}>
 					{platesOnBarbell.map((weightNum, index) => (
 						<PlateOnBarbell 
 							weightNum={weightNum}
 							key={index}
 						/>
 					))}
-					
 				</div>
-
 			</div>
+			
 
 			<h2>Barbells</h2>
 
@@ -142,7 +173,7 @@ export default function Calculator() {
 				<Barbell
 					weightNum={barbellWeight}
 					onPress={() => {addBarbellWeight(barbellWeight)}}
-					disableBarbell={disableBarbell}
+					disableBarbell={barbell}
 					reset={reset}
 					setReset={setReset}
 					key={index}
