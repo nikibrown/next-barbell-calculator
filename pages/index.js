@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import Plate from "../components/Plate"
 import Barbell from "../components/Barbell"
 import PlateOnBarbell from "../components/PlateOnBarbell"
