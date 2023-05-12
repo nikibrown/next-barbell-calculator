@@ -1,42 +1,45 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
+import PropTypes from "prop-types"
 
-export default function Plate({weightNum, onPress, classNames, reset, setReset }) {
-	const [plateCount, setPlateCount] = useState(0)
-	let noZeroWeightNum = weightNum.toString()
-	noZeroWeightNum = noZeroWeightNum.replace("0.",".")
+export default function Plate({
+    weightNum,
+    onPress,
+    classNames,
+    reset,
+    setReset,
+}) {
+    const [plateCount, setPlateCount] = useState(0)
+    let noZeroWeightNum = weightNum.toString()
+    noZeroWeightNum = noZeroWeightNum.replace("0.", ".")
 
-	const updatePlate = () => {
-		setPlateCount(plateCount + 2)
-	}
+    const updatePlate = () => {
+        setPlateCount(plateCount + 2)
+    }
 
-	useEffect(() => {
-        if(reset){
+    useEffect(() => {
+        if (reset) {
             setPlateCount(0)
-			setReset(false)
+            setReset(false)
         }
-      }, [reset]);
+    }, [reset])
 
+    return (
+        <span style={{ display: "inline-block" }} onClick={updatePlate}>
+            <button type="button" className={classNames} onClick={onPress}>
+                {noZeroWeightNum}
 
-	return (
-		<span 
-			style={{display: "inline-block"}}
-			onClick={updatePlate}
-		>
-			<button 
-				type="button"
-				className={classNames}
-				onClick={onPress}
-			>
-				{noZeroWeightNum}
+                {plateCount > 0 ? (
+                    <span className="plate-count-badge text-dark position-absolute translate-middle badge rounded-pill bg-light border border-dark">
+                        {plateCount}
+                    </span>
+                ) : null}
+            </button>
+        </span>
+    )
+}
 
-								
-				{ plateCount > 0 ? 
-					<span className="plate-count-badge text-dark position-absolute translate-middle badge rounded-pill bg-light border border-dark">
-						{plateCount}
-					</span> 
-				: null }	
-				
-	  		</button>
-		</span>
-	)
+Plate.propTypes = {
+    weightNum: PropTypes.number,
+    onClick: PropTypes.func,
+    classNames: PropTypes.string,
 }
