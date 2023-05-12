@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 
 export default function Plate({
@@ -39,6 +39,7 @@ export default function Plate({
 }
 
 Plate.propTypes = {
-    weight: PropTypes.oneOf(["55", "45", "35", "25", "15", "10"]),
-    // onClick: PropTypes.func,
+    weightNum: PropTypes.number,
+    onClick: PropTypes.func,
+    classNames: PropTypes.string,
 }
