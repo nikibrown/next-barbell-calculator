@@ -1,3 +1,5 @@
+// TODO: Remove old styles from previous app and clean this up! 😢
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
 body {
@@ -30,7 +32,6 @@ footer {
 }
 
 main {
-    margin: 40px 0;
     flex: 1; /* set the flex property of the main element to 1 */
 }
 
@@ -157,13 +158,28 @@ main {
     border-color: var(--gray);
 }
 
-.total-weight-reset {
-    margin-bottom: 30px;
+.total-weight {
+    background-color: #ddd;
+    padding: 20px 0;
+}
+
+.barbell {
+    padding: 20px 0;
+}
+
+.barbells {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.plates {
+    text-align: center;
+    padding: 20px 0;
 }
 
 .barbell-weights {
     margin: 40px 0;
-    height: 120px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -173,6 +189,10 @@ main {
     z-index: 1;
     max-width: 900px;
     margin: 0 auto;
+
+    @media screen and (min-width: 900px) {
+        height: 120px;
+    }
 
     &:after {
         content: "";
@@ -247,11 +267,15 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 120px;
+    height: 80px;
     z-index: 1;
     border: 1px solid #fff;
     font-size: 10px;
     border-radius: 5px;
+
+    @media screen and (min-width: 900px) {
+        height: 120px;
+    }
 }
 
 .barbell-plate-55 {

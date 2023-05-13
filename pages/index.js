@@ -104,8 +104,8 @@ export default function Calculator() {
             <Header />
 
             <main>
-                <div className="container text-center position-relative">
-                    <div className="total-weight-reset">
+                <section className="total-weight">
+                    <div className="container text-center position-relative">
                         <h1>
                             {weight}
                             <small>lb</small>
@@ -125,69 +125,83 @@ export default function Calculator() {
                             </svg>
                         </button>
                     </div>
+                </section>
 
-                    <div className="barbell-weights">
-                        <div className="left-weights weights">
-                            {platesOnBarbellLeft.map((weightNum, index) => (
-                                <PlateOnBarbell
-                                    weightNum={weightNum}
-                                    key={index}
-                                />
-                            ))}
-                        </div>
-                        <div className="right-weights weights">
-                            {platesOnBarbellRight.map((weightNum, index) => (
-                                <PlateOnBarbell
-                                    weightNum={weightNum}
-                                    key={index}
-                                />
-                            ))}
+                <section className="barbell">
+                    <div className="container">
+                        <div className="barbell-weights">
+                            <div className="left-weights weights">
+                                {platesOnBarbellLeft.map((weightNum, index) => (
+                                    <PlateOnBarbell
+                                        weightNum={weightNum}
+                                        key={index}
+                                    />
+                                ))}
+                            </div>
+                            <div className="right-weights weights">
+                                {platesOnBarbellRight.map(
+                                    (weightNum, index) => (
+                                        <PlateOnBarbell
+                                            weightNum={weightNum}
+                                            key={index}
+                                        />
+                                    )
+                                )}
+                            </div>
                         </div>
                     </div>
+                </section>
 
-                    <h2>Barbells</h2>
+                <section className="barbells">
+                    <div className="container">
+                        <h2>Barbells</h2>
 
-                    {barbells.map((barbellWeight, index) => (
-                        <Barbell
-                            weightNum={barbellWeight}
-                            onPress={() => {
-                                addBarbellWeight(barbellWeight)
-                            }}
-                            disableBarbell={barbell}
-                            reset={reset}
-                            setReset={setReset}
-                            key={index}
-                        />
-                    ))}
-
-                    <h2>Plates</h2>
-
-                    <div>
-                        {largePlates.map((plate, index) => (
-                            <Plate
-                                classNames={`btn btn-plate position-relative ${plate.styles}`}
-                                weightNum={plate.weight}
-                                onPress={() => addWeight(plate.weight)}
+                        {barbells.map((barbellWeight, index) => (
+                            <Barbell
+                                weightNum={barbellWeight}
+                                onPress={() => {
+                                    addBarbellWeight(barbellWeight)
+                                }}
+                                disableBarbell={barbell}
                                 reset={reset}
                                 setReset={setReset}
                                 key={index}
                             />
                         ))}
                     </div>
+                </section>
 
-                    <div>
-                        {smallPlates.map((plate, index) => (
-                            <Plate
-                                classNames={`btn btn-plate position-relative ${plate.styles}`}
-                                weightNum={plate.weight}
-                                onPress={() => addWeight(plate.weight)}
-                                reset={reset}
-                                setReset={setReset}
-                                key={index}
-                            />
-                        ))}
+                <section className="plates">
+                    <div className="container">
+                        <h2>Plates</h2>
+
+                        <div>
+                            {largePlates.map((plate, index) => (
+                                <Plate
+                                    classNames={`btn btn-plate position-relative ${plate.styles}`}
+                                    weightNum={plate.weight}
+                                    onPress={() => addWeight(plate.weight)}
+                                    reset={reset}
+                                    setReset={setReset}
+                                    key={index}
+                                />
+                            ))}
+                        </div>
+
+                        <div>
+                            {smallPlates.map((plate, index) => (
+                                <Plate
+                                    classNames={`btn btn-plate position-relative ${plate.styles}`}
+                                    weightNum={plate.weight}
+                                    onPress={() => addWeight(plate.weight)}
+                                    reset={reset}
+                                    setReset={setReset}
+                                    key={index}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div>
+                </section>
             </main>
             <Footer />
         </div>
