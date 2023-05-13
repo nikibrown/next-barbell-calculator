@@ -62,9 +62,9 @@ export default function Calculator() {
     const [weight, setWeight] = useState(0)
 
     // store clicked plates in a state array
-    const [platesOnBarbell, setPlatesOnBarbell] = useState([])
+    const [platesOnBarbellRight, setPlatesOnBarbellRight] = useState([])
 
-    const [platesOnBarbellReversed, setPlatesOnBarbellReversed] = useState([])
+    const [platesOnBarbellLeft, setPlatesOnBarbellLeft] = useState([])
 
     // const [showClips, setShowClips] = useState(false)
 
@@ -75,15 +75,15 @@ export default function Calculator() {
     const [reset, setReset] = useState(false)
 
     // undo button?
-    // remove last number from setPlatesOnBarBell, first num from setPlatesOnBarbellReversed? and then subtract from setWeight?
+    // remove last number from setPlatesOnBarBellRight, first num from setPlatesOnBarbellLeft? and then subtract from setWeight?
     // or should setWeight be an array that gets reduced?
 
     const addWeight = (weightPlate) => {
         setWeight(weight + weightPlate * 2)
         // adds the clicked weightPlate to the end of the platesOnBarbell array
-        setPlatesOnBarbell((current) => [...current, weightPlate])
+        setPlatesOnBarbellRight((current) => [...current, weightPlate])
         // adds the clicked weightPlate to the beginning of the platesOnBarbell array
-        setPlatesOnBarbellReversed((current) => [weightPlate, ...current])
+        setPlatesOnBarbellLeft((current) => [weightPlate, ...current])
         // setShowClips(true)
     }
 
@@ -96,8 +96,8 @@ export default function Calculator() {
         setReset(true)
         setWeight(0)
         setBarbell(false)
-        setPlatesOnBarbell([])
-        setPlatesOnBarbellReversed([])
+        setPlatesOnBarbellRight([])
+        setPlatesOnBarbellLeft([])
         // setShowClips(false)
     }
 
@@ -117,12 +117,12 @@ export default function Calculator() {
 
             <div className="barbell-weights">
                 <div className="left-weights weights">
-                    {platesOnBarbellReversed.map((weightNum, index) => (
+                    {platesOnBarbellLeft.map((weightNum, index) => (
                         <PlateOnBarbell weightNum={weightNum} key={index} />
                     ))}
                 </div>
                 <div className="right-weights weights">
-                    {platesOnBarbell.map((weightNum, index) => (
+                    {platesOnBarbellRight.map((weightNum, index) => (
                         <PlateOnBarbell weightNum={weightNum} key={index} />
                     ))}
                 </div>
