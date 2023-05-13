@@ -1,5 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.app-container {
+    display: flex; /* set the display property of the body to flex */
+    flex-direction: column; /* set the flex-direction property of the body to column */
+    min-height: 100vh; /* set the minimum height of the body to 100vh */
+    margin: 0;
+    padding: 0;
+}
+
+header,
+footer {
+    flex-shrink: 0;
+}
+
 .app {
-    margin: 30px auto;
+    margin: 0 auto;
     width: 50vw;
 }
 
@@ -11,7 +30,8 @@
 }
 
 main {
-    margin: 20px 0;
+    margin: 40px 0;
+    flex: 1; /* set the flex property of the main element to 1 */
 }
 
 .weight-lg {
@@ -66,8 +86,8 @@ main {
     .btn-plate.weight-lg,
     .btn-plate.weight-sm {
         font-size: 14px;
-        min-width: 39px;
-        min-height: 39px;
+        min-width: 45px;
+        min-height: 45px;
         margin: 3px;
     }
 }
@@ -133,6 +153,10 @@ main {
     border-color: var(--gray);
 }
 
+.total-weight-reset {
+    margin-bottom: 50px;
+}
+
 .barbell-weights {
     margin: 40px 0;
     height: 120px;
@@ -143,6 +167,9 @@ main {
     width: 100%;
     position: relative;
     z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+
     &:after {
         content: "";
         width: 100%;
@@ -273,4 +300,48 @@ main {
 
 [class*="barbell-plate-0"] .weight-number {
     transform: rotate(90deg);
+}
+
+svg {
+    color: white;
+    width: 1rem;
+    height: 1rem;
+}
+
+header {
+    .info {
+        padding: 20px 0;
+    }
+
+    h1 {
+        margin-bottom: 0;
+    }
+    a {
+        color: white;
+    }
+
+    padding: 20px 0px;
+    p {
+        margin: 0;
+    }
+
+    svg {
+        transition: opacity 0.15s ease-in-out;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    }
+}
+
+footer {
+    padding: 20px 0;
+
+    p {
+        margin: 0;
+    }
+    span {
+        display: inline-block;
+        margin: 0 5px;
+    }
 }
