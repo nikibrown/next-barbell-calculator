@@ -66,8 +66,6 @@ export default function Calculator() {
 
     const [platesOnBarbellLeft, setPlatesOnBarbellLeft] = useState([])
 
-    // const [showClips, setShowClips] = useState(false)
-
     // state of barbells - disable after barbell is selected - false by default
     const [barbell, setBarbell] = useState(false)
 
@@ -84,7 +82,6 @@ export default function Calculator() {
         setPlatesOnBarbellRight((current) => [...current, weightPlate])
         // adds the clicked weightPlate to the beginning of the platesOnBarbell array
         setPlatesOnBarbellLeft((current) => [weightPlate, ...current])
-        // setShowClips(true)
     }
 
     const addBarbellWeight = (barbellWeight) => {
@@ -98,7 +95,6 @@ export default function Calculator() {
         setBarbell(false)
         setPlatesOnBarbellRight([])
         setPlatesOnBarbellLeft([])
-        // setShowClips(false)
     }
 
     return (
