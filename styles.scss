@@ -149,12 +149,16 @@ main {
     border-color: #ccc;
 }
 
+.btn.btn-secondary.checked {
+    background-color: black;
+}
+
 .btn-dark.btn-barbell-15:hover {
     border-color: var(--gray);
 }
 
 .total-weight-reset {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .barbell-weights {
@@ -252,22 +256,38 @@ main {
 
 .barbell-plate-55 {
     background-color: #dc3545;
-    width: 55px;
+    width: 20px;
+
+    @media screen and (min-width: 900px) {
+        width: 55px;
+    }
 }
 
 .barbell-plate-45 {
     background-color: #0d6efd;
-    width: 45px;
+    width: 20px;
+
+    @media screen and (min-width: 900px) {
+        width: 45px;
+    }
 }
 
 .barbell-plate-35 {
     background-color: #ffc107;
-    width: 35px;
+    width: 20px;
+
+    @media screen and (min-width: 900px) {
+        width: 35px;
+    }
 }
 
 .barbell-plate-25 {
     background-color: #157347;
-    width: 25px;
+    width: 20px;
+
+    @media screen and (min-width: 900px) {
+        width: 25px;
+    }
 }
 
 .barbell-plate-15 {
