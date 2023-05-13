@@ -25,11 +25,11 @@ export default function Barbell({
         <span style={{ display: "inline-block" }} onClick={updateChecked}>
             <button
                 type="button"
-                className="btn btn-secondary"
+                className={`btn btn-secondary ${checked ? "checked" : ""}`}
                 onClick={onPress}
                 disabled={disableBarbell}
             >
-                {checked ? "✔" : ""} {weightNum} Barbell
+                {weightNum} Barbell
             </button>
         </span>
     )
