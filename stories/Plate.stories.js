@@ -3,6 +3,7 @@ import Plate from "../components/Plate"
 export default {
     title: "Components/Plates",
     component: Plate,
+    tags: ["autodocs"],
     argTypes: { onClick: { action: "foo" } },
 }
 
