@@ -3,6 +3,7 @@ import PlateOnBarbell from "../components/PlateOnBarbell"
 export default {
     title: "Components/PlatesOnBarbell",
     component: PlateOnBarbell,
+    tags: ["autodocs"],
 }
 
 const Template = (args) => <PlateOnBarbell {...args} />
