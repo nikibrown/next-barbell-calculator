@@ -7,38 +7,26 @@ export default function Header() {
     }
 
     return (
-        <header className="bg-dark">
-            {showInfo && (
-                <div className="info  text-white ">
-                    <div className="container">
-                        <p>
-                            💪 Barbell calculator is a made by{" "}
-                            <a href="https://nikibrown.com" target="_blank">
-                                Niki Brown
-                            </a>{" "}
-                            who is bad at math 🤣 <br />
-                            <small>
-                                If you find an issue or have a feature request
-                                please feel free to open a{" "}
-                                <a
-                                    href="https://github.com/nikibrown/next-barbell-calculator/issues"
-                                    target="_blank"
-                                >
-                                    github issue
-                                </a>{" "}
-                                or{" "}
-                                <a
-                                    href="https://github.com/nikibrown/next-barbell-calculator/pulls"
-                                    target="_blank"
-                                >
-                                    pull request
-                                </a>
-                                .
-                            </small>
-                        </p>
-                    </div>
+        <header className="bg-dark text-white">
+            <div
+                className={`info text-dark ${
+                    showInfo == true ? "showInfo" : ""
+                }`}
+            >
+                <div className="container">
+                    <span className="close" onClick={handleToggle}>
+                        &times;
+                    </span>
+
+                    <p>
+                        Barbell calculator is a made by{" "}
+                        <a href="https://nikibrown.com" target="_blank">
+                            Niki Brown
+                        </a>{" "}
+                        who is bad at math. 🤣 <br />
+                    </p>
                 </div>
-            )}
+            </div>
 
             <div className="bg-dark text-white">
                 <nav className="navbar">
