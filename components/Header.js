@@ -28,7 +28,7 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className="bg-dark text-white navbar-container">
+            <div className="bg-dark text-white">
                 <nav className="navbar">
                     <div className="container">
                         <h1>Barbell Calculator</h1>
