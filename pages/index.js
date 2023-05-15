@@ -6,7 +6,7 @@ import Barbell from "../components/Barbell"
 import PlateOnBarbell from "../components/PlateOnBarbell"
 
 export default function Calculator() {
-    // data to map through
+    // data
     const barbells = [45, 35, 15]
 
     const smallPlates = [
@@ -60,6 +60,8 @@ export default function Calculator() {
         },
     ]
 
+    // State
+
     // add up the total weight
     const [weight, setWeight] = useState(0)
 
@@ -74,10 +76,7 @@ export default function Calculator() {
     // reset button
     const [reset, setReset] = useState(false)
 
-    // undo button?
-    // remove last number from setPlatesOnBarBellRight, first num from setPlatesOnBarbellLeft? and then subtract from setWeight?
-    // or should setWeight be an array that gets reduced?
-
+    // functions
     const addWeight = (weightPlate) => {
         setWeight(weight + weightPlate * 2)
         // adds the clicked weightPlate to the end of the platesOnBarbell array
@@ -102,7 +101,6 @@ export default function Calculator() {
     return (
         <div className="app-container">
             <Header />
-
             <main>
                 <section className="total-weight">
                     <div className="container text-center position-relative">

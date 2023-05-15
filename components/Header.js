@@ -2,7 +2,7 @@ import React, { useState } from "react"
 export default function Header() {
     const [showInfo, setShowInfo] = useState(false)
 
-    const handleToggle = () => {
+    const handleShowInfoToggle = () => {
         setShowInfo(!showInfo)
     }
 
@@ -14,7 +14,7 @@ export default function Header() {
                 }`}
             >
                 <div className="container">
-                    <span className="close" onClick={handleToggle}>
+                    <span className="close" onClick={handleShowInfoToggle}>
                         &times;
                     </span>
 
@@ -36,7 +36,7 @@ export default function Header() {
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512"
-                            onClick={handleToggle}
+                            onClick={handleShowInfoToggle}
                         >
                             <path
                                 fill="currentColor"

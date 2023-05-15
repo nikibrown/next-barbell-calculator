@@ -6,26 +6,28 @@ export default function Barbell({
     reset,
     setReset,
 }) {
-    const [checked, setChecked] = useState(false)
+    const [barbellSelected, setBarbellSelection] = useState(false)
 
-    const updateChecked = () => {
+    const updateBarbell = () => {
         if (!disableBarbell) {
-            setChecked(true)
+            setBarbellSelection(true)
         }
     }
 
     useEffect(() => {
         if (reset) {
-            setChecked(false)
+            setBarbellSelection(false)
             setReset(false)
         }
     }, [reset])
 
     return (
-        <span style={{ display: "inline-block" }} onClick={updateChecked}>
+        <span style={{ display: "inline-block" }} onClick={updateBarbell}>
             <button
                 type="button"
-                className={`btn btn-secondary ${checked ? "checked" : ""}`}
+                className={`btn btn-secondary ${
+                    barbellSelected ? "checked" : ""
+                }`}
                 onClick={onPress}
                 disabled={disableBarbell}
             >

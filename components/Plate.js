@@ -9,10 +9,11 @@ export default function Plate({
     setReset,
 }) {
     const [plateCount, setPlateCount] = useState(0)
+
     let noZeroWeightNum = weightNum.toString()
     noZeroWeightNum = noZeroWeightNum.replace("0.", ".")
 
-    const updatePlate = () => {
+    const handleUpdatePlatecount = () => {
         setPlateCount(plateCount + 2)
     }
 
@@ -24,7 +25,10 @@ export default function Plate({
     }, [reset])
 
     return (
-        <span style={{ display: "inline-block" }} onClick={updatePlate}>
+        <span
+            style={{ display: "inline-block" }}
+            onClick={handleUpdatePlatecount}
+        >
             <button type="button" className={classNames} onClick={onPress}>
                 {noZeroWeightNum}
 
@@ -38,6 +42,7 @@ export default function Plate({
     )
 }
 
+// Storybook
 Plate.propTypes = {
     weightNum: PropTypes.number,
     onClick: PropTypes.func,
