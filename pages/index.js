@@ -127,10 +127,10 @@ export default function Calculator() {
                     </div>
                 </section>
 
-                <section className="barbell">
+                <section className="weights-on-barbell">
                     <div className="container">
-                        <div className="barbell-weights">
-                            <div className="left-weights weights">
+                        <div className="barbell-weights-container">
+                            <div className="weights left-weights">
                                 {platesOnBarbellLeft.map((weightNum, index) => (
                                     <PlateOnBarbell
                                         weightNum={weightNum}
@@ -138,7 +138,7 @@ export default function Calculator() {
                                     />
                                 ))}
                             </div>
-                            <div className="right-weights weights">
+                            <div className="weights right-weights">
                                 {platesOnBarbellRight.map(
                                     (weightNum, index) => (
                                         <PlateOnBarbell
