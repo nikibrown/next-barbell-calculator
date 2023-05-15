@@ -122,31 +122,31 @@ export default function Calculator() {
                                 />
                             </svg>
                         </button>
-                    </div>
-                </section>
 
-                <section className="weights-on-barbell">
-                    <div className="container">
-                        <div className="barbell-weights-container">
-                            <div className="weights left-weights">
-                                {platesOnBarbellLeft.map((weightNum, index) => (
-                                    <PlateOnBarbell
-                                        weightNum={weightNum}
-                                        key={index}
-                                    />
-                                ))}
+                        <section className="weights-on-barbell">
+                            <div className="barbell-weights-container">
+                                <div className="weights left-weights">
+                                    {platesOnBarbellLeft.map(
+                                        (weightNum, index) => (
+                                            <PlateOnBarbell
+                                                weightNum={weightNum}
+                                                key={index}
+                                            />
+                                        )
+                                    )}
+                                </div>
+                                <div className="weights right-weights">
+                                    {platesOnBarbellRight.map(
+                                        (weightNum, index) => (
+                                            <PlateOnBarbell
+                                                weightNum={weightNum}
+                                                key={index}
+                                            />
+                                        )
+                                    )}
+                                </div>
                             </div>
-                            <div className="weights right-weights">
-                                {platesOnBarbellRight.map(
-                                    (weightNum, index) => (
-                                        <PlateOnBarbell
-                                            weightNum={weightNum}
-                                            key={index}
-                                        />
-                                    )
-                                )}
-                            </div>
-                        </div>
+                        </section>
                     </div>
                 </section>
 
