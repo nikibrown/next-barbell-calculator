@@ -28,15 +28,13 @@ footer {
     border: none;
     font-size: 12px;
     line-height: 0;
-    min-width: 39px;
-    min-height: 39px;
-    margin: 2px;
+    min-width: 45px;
+    min-height: 45px;
 
     &.weight-lg {
         @media screen and (min-width: 900px) {
             min-width: 90px;
             min-height: 90px;
-            margin: 10px;
         }
     }
 
@@ -44,13 +42,16 @@ footer {
         @media screen and (min-width: 900px) {
             min-width: 60px;
             min-height: 60px;
-            margin: 10px;
         }
     }
 
-    .badge.plate-count-badge {
-        left: 80%;
-        top: 10px;
+    &.btn .badge.plate-count-badge {
+        left: 90%;
+        top: 5px;
+        @media screen and (min-width: 900px) {
+            left: 80%;
+            top: 10px;
+        }
     }
 }
 
@@ -60,26 +61,20 @@ footer {
 
 /* sections */
 
+/* total weight on barbell & Reset button */
+
 .total-weight {
     background-color: #ddd;
     padding: 20px 0;
 }
 
-.barbell {
+/* weight plates on the barbell when after clicking */
+
+.weights-on-barbell {
     padding: 20px 0;
 }
 
-.barbells {
-    padding: 20px 0;
-    text-align: center;
-}
-
-.plates {
-    text-align: center;
-    padding: 20px 0;
-}
-
-.barbell-weights {
+.barbell-weights-container {
     margin: 40px 0;
     height: 70px;
     display: flex;
@@ -113,14 +108,13 @@ footer {
     display: flex;
     position: relative;
     align-items: center;
-}
 
-.left-weights {
-    margin-left: 20px;
-}
-
-.right-weights {
-    margin-right: 20px;
+    &.left-weights {
+        margin-left: 20px;
+    }
+    &.right-weights {
+        margin-right: 20px;
+    }
 }
 
 .barbell-plate {
@@ -208,6 +202,22 @@ footer {
 [class*="barbell-plate-0"] .weight-number {
     transform: rotate(90deg);
 }
+
+/* list of barbell buttons */
+
+.barbells {
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* list of plates to put on barbell */
+
+.plates {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Header / footer etc */
 
 svg {
     color: white;
