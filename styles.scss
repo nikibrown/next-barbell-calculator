@@ -208,6 +208,15 @@ footer {
 .barbells {
     padding: 20px 0;
     text-align: center;
+
+    .btn:disabled {
+        &:hover {
+            cursor: not-allowed;
+        }
+        &.checked {
+            background-color: #000;
+        }
+    }
 }
 
 /* list of plates to put on barbell */
