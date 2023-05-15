@@ -21,6 +21,7 @@ export default function Footer() {
                         <a
                             href="https://github.com/nikibrown/next-barbell-calculator"
                             target="_blank"
+                            aria-label="View the code for this app on github"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

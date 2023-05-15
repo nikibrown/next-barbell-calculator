@@ -111,6 +111,7 @@ export default function Calculator() {
                         <button
                             className="reset btn btn-small btn-danger position-absolute top-0 end-0"
                             onClick={() => resetEverything()}
+                            aria-label="Reset Barbell"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
