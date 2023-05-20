@@ -12,51 +12,50 @@ export default function Calculator() {
     const smallPlates = [
         {
             weight: 5,
-            styles: "btn-dark weight-sm",
+            type: "small",
         },
         {
             weight: 1,
-            styles: "btn-dark weight-sm",
+            type: "small",
         },
         {
             weight: 0.75,
-            styles: "btn-dark weight-sm",
+            type: "small",
         },
         {
             weight: 0.5,
-            styles: "btn-dark weight-sm",
+            type: "small",
         },
         {
             weight: 0.25,
-            styles: "btn-dark weight-sm",
+            type: "small",
         },
     ]
 
     const largePlates = [
         {
             weight: 55,
-            styles: "btn-danger weight-lg",
+            type: "large",
         },
         {
             weight: 45,
-            styles: "btn-primary weight-lg",
+            type: "large",
         },
         {
             weight: 35,
-            styles: "btn-warning weight-lg",
+            type: "large",
         },
         {
             weight: 25,
-            styles: "btn-success weight-lg",
+            type: "large",
         },
         {
             weight: 15,
-            styles: "btn-dark weight-lg",
+            type: "large",
         },
-
         {
             weight: 10,
-            styles: "btn-dark weight-lg",
+            type: "large",
         },
     ]
 
@@ -177,12 +176,13 @@ export default function Calculator() {
                         <div>
                             {largePlates.map((plate, index) => (
                                 <Plate
-                                    classNames={`btn btn-plate position-relative ${plate.styles}`}
+                                    plateType={"plate" + plate.weight}
                                     weightNum={plate.weight}
                                     onPress={() => addWeight(plate.weight)}
                                     reset={reset}
                                     setReset={setReset}
                                     key={index}
+                                    type={plate.type}
                                 />
                             ))}
                         </div>
@@ -190,12 +190,13 @@ export default function Calculator() {
                         <div>
                             {smallPlates.map((plate, index) => (
                                 <Plate
-                                    classNames={`btn btn-plate position-relative ${plate.styles}`}
+                                    plateType={"plate" + plate.weight}
                                     weightNum={plate.weight}
                                     onPress={() => addWeight(plate.weight)}
                                     reset={reset}
                                     setReset={setReset}
                                     key={index}
+                                    type={plate.type}
                                 />
                             ))}
                         </div>
