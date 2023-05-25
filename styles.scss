@@ -19,43 +19,9 @@ footer {
     flex-shrink: 0;
 }
 
-/* Weights */
-
-// .btn-plate {
-//     border-radius: 50%;
-//     border: none;
-//     font-size: 12px;
-//     line-height: 0;
-//     min-width: 45px;
-//     min-height: 45px;
-
-//     &.weight-lg {
-//         @media screen and (min-width: 900px) {
-//             min-width: 90px;
-//             min-height: 90px;
-//         }
-//     }
-
-//     &.weight-sm {
-//         @media screen and (min-width: 900px) {
-//             min-width: 60px;
-//             min-height: 60px;
-//         }
-//     }
-
-//     &.btn .badge.plate-count-badge {
-//         left: 90%;
-//         top: 5px;
-//         @media screen and (min-width: 900px) {
-//             left: 80%;
-//             top: 10px;
-//         }
-//     }
+// .btn {
+//     margin: 0.25rem 0.5rem;
 // }
-
-.btn {
-    margin: 0.25rem 0.5rem;
-}
 
 /* sections */
 
@@ -68,7 +34,7 @@ footer {
 
 /* weight plates on the barbell when after clicking */
 
-.weights-on-barbell {
+.weights-on-barbell-section {
     padding: 20px 0;
 }
 
@@ -115,111 +81,16 @@ footer {
     }
 }
 
-// .barbell-plate {
-//     color: #fff;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     height: 80px;
-//     z-index: 1;
-//     border: 1px solid #ddd;
-//     font-size: 10px;
-//     border-radius: 5px;
-
-//     @media screen and (min-width: 900px) {
-//         height: 120px;
-//     }
-// }
-
-// .barbell-plate-55 {
-//     background-color: #dc3545;
-//     width: 20px;
-
-//     @media screen and (min-width: 900px) {
-//         width: 55px;
-//     }
-// }
-
-// .barbell-plate-45 {
-//     background-color: #0d6efd;
-//     width: 20px;
-
-//     @media screen and (min-width: 900px) {
-//         width: 45px;
-//     }
-// }
-
-// .barbell-plate-35 {
-//     background-color: #ffc107;
-//     width: 20px;
-
-//     @media screen and (min-width: 900px) {
-//         width: 35px;
-//     }
-// }
-
-// .barbell-plate-25 {
-//     background-color: #157347;
-//     width: 20px;
-
-//     @media screen and (min-width: 900px) {
-//         width: 25px;
-//     }
-// }
-
-// .barbell-plate-15 {
-//     background-color: black;
-//     width: 20px;
-// }
-
-// .barbell-plate-10 {
-//     background-color: black;
-//     width: 20px;
-// }
-
-// .barbell-plate-5 {
-//     background-color: black;
-//     width: 15px;
-//     height: 60px;
-// }
-
-// .barbell-plate-1 {
-//     background-color: black;
-//     width: 15px;
-//     height: 60px;
-// }
-
-// [class*="barbell-plate-0"] {
-//     background-color: black;
-//     width: 15px;
-//     height: 60px;
-// }
-
-/* all fractional plates */
-
-// [class*="barbell-plate-0"] .weight-number {
-//     transform: rotate(90deg);
-// }
-
 /* list of barbell buttons */
 
-.barbells {
+.barbells-section {
     padding: 20px 0;
     text-align: center;
-
-    .btn:disabled {
-        &:hover {
-            cursor: not-allowed;
-        }
-        &.checked {
-            background-color: #000;
-        }
-    }
 }
 
 /* list of plates to put on barbell */
 
-.plates {
+.plates-section {
     text-align: center;
     padding: 20px 0;
 }
@@ -227,7 +98,7 @@ footer {
 /* Header / footer etc */
 
 svg {
-    color: white;
+    color: #fff;
     width: 1rem;
     height: 1rem;
 }
@@ -235,7 +106,7 @@ svg {
 header {
     padding: 20px 0px;
     .info {
-        background-color: white;
+        background-color: #fff;
         border: 2px solid #000;
         border-radius: 10px;
         padding: 20px;

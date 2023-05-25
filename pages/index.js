@@ -123,7 +123,7 @@ export default function Calculator() {
                             </svg>
                         </button>
 
-                        <section className="weights-on-barbell">
+                        <section className="weights-on-barbell-section">
                             <div className="barbell-weights-container">
                                 <div className="weights left-weights">
                                     {platesOnBarbellLeft.map(
@@ -152,7 +152,7 @@ export default function Calculator() {
                     </div>
                 </section>
 
-                <section className="barbells">
+                <section className="barbells-section">
                     <div className="container">
                         <h2>Barbells</h2>
 
@@ -171,7 +171,7 @@ export default function Calculator() {
                     </div>
                 </section>
 
-                <section className="plates">
+                <section className="plates-section">
                     <div className="container">
                         <h2>Plates</h2>
 
