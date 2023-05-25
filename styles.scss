@@ -115,91 +115,91 @@ footer {
     }
 }
 
-.barbell-plate {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    z-index: 1;
-    border: 1px solid #ddd;
-    font-size: 10px;
-    border-radius: 5px;
+// .barbell-plate {
+//     color: #fff;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     height: 80px;
+//     z-index: 1;
+//     border: 1px solid #ddd;
+//     font-size: 10px;
+//     border-radius: 5px;
 
-    @media screen and (min-width: 900px) {
-        height: 120px;
-    }
-}
+//     @media screen and (min-width: 900px) {
+//         height: 120px;
+//     }
+// }
 
-.barbell-plate-55 {
-    background-color: #dc3545;
-    width: 20px;
+// .barbell-plate-55 {
+//     background-color: #dc3545;
+//     width: 20px;
 
-    @media screen and (min-width: 900px) {
-        width: 55px;
-    }
-}
+//     @media screen and (min-width: 900px) {
+//         width: 55px;
+//     }
+// }
 
-.barbell-plate-45 {
-    background-color: #0d6efd;
-    width: 20px;
+// .barbell-plate-45 {
+//     background-color: #0d6efd;
+//     width: 20px;
 
-    @media screen and (min-width: 900px) {
-        width: 45px;
-    }
-}
+//     @media screen and (min-width: 900px) {
+//         width: 45px;
+//     }
+// }
 
-.barbell-plate-35 {
-    background-color: #ffc107;
-    width: 20px;
+// .barbell-plate-35 {
+//     background-color: #ffc107;
+//     width: 20px;
 
-    @media screen and (min-width: 900px) {
-        width: 35px;
-    }
-}
+//     @media screen and (min-width: 900px) {
+//         width: 35px;
+//     }
+// }
 
-.barbell-plate-25 {
-    background-color: #157347;
-    width: 20px;
+// .barbell-plate-25 {
+//     background-color: #157347;
+//     width: 20px;
 
-    @media screen and (min-width: 900px) {
-        width: 25px;
-    }
-}
+//     @media screen and (min-width: 900px) {
+//         width: 25px;
+//     }
+// }
 
-.barbell-plate-15 {
-    background-color: black;
-    width: 20px;
-}
+// .barbell-plate-15 {
+//     background-color: black;
+//     width: 20px;
+// }
 
-.barbell-plate-10 {
-    background-color: black;
-    width: 20px;
-}
+// .barbell-plate-10 {
+//     background-color: black;
+//     width: 20px;
+// }
 
-.barbell-plate-5 {
-    background-color: black;
-    width: 15px;
-    height: 60px;
-}
+// .barbell-plate-5 {
+//     background-color: black;
+//     width: 15px;
+//     height: 60px;
+// }
 
-.barbell-plate-1 {
-    background-color: black;
-    width: 15px;
-    height: 60px;
-}
+// .barbell-plate-1 {
+//     background-color: black;
+//     width: 15px;
+//     height: 60px;
+// }
 
-[class*="barbell-plate-0"] {
-    background-color: black;
-    width: 15px;
-    height: 60px;
-}
+// [class*="barbell-plate-0"] {
+//     background-color: black;
+//     width: 15px;
+//     height: 60px;
+// }
 
 /* all fractional plates */
 
-[class*="barbell-plate-0"] .weight-number {
-    transform: rotate(90deg);
-}
+// [class*="barbell-plate-0"] .weight-number {
+//     transform: rotate(90deg);
+// }
 
 /* list of barbell buttons */
 

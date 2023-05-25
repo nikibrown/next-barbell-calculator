@@ -129,6 +129,7 @@ export default function Calculator() {
                                     {platesOnBarbellLeft.map(
                                         (weightNum, index) => (
                                             <PlateOnBarbell
+                                                plateType={"plate" + weightNum}
                                                 weightNum={weightNum}
                                                 key={index}
                                             />
@@ -139,6 +140,7 @@ export default function Calculator() {
                                     {platesOnBarbellRight.map(
                                         (weightNum, index) => (
                                             <PlateOnBarbell
+                                                plateType={"plate" + weightNum}
                                                 weightNum={weightNum}
                                                 key={index}
                                             />
