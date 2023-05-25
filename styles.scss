@@ -21,37 +21,37 @@ footer {
 
 /* Weights */
 
-.btn-plate {
-    border-radius: 50%;
-    border: none;
-    font-size: 12px;
-    line-height: 0;
-    min-width: 45px;
-    min-height: 45px;
+// .btn-plate {
+//     border-radius: 50%;
+//     border: none;
+//     font-size: 12px;
+//     line-height: 0;
+//     min-width: 45px;
+//     min-height: 45px;
 
-    &.weight-lg {
-        @media screen and (min-width: 900px) {
-            min-width: 90px;
-            min-height: 90px;
-        }
-    }
+//     &.weight-lg {
+//         @media screen and (min-width: 900px) {
+//             min-width: 90px;
+//             min-height: 90px;
+//         }
+//     }
 
-    &.weight-sm {
-        @media screen and (min-width: 900px) {
-            min-width: 60px;
-            min-height: 60px;
-        }
-    }
+//     &.weight-sm {
+//         @media screen and (min-width: 900px) {
+//             min-width: 60px;
+//             min-height: 60px;
+//         }
+//     }
 
-    &.btn .badge.plate-count-badge {
-        left: 90%;
-        top: 5px;
-        @media screen and (min-width: 900px) {
-            left: 80%;
-            top: 10px;
-        }
-    }
-}
+//     &.btn .badge.plate-count-badge {
+//         left: 90%;
+//         top: 5px;
+//         @media screen and (min-width: 900px) {
+//             left: 80%;
+//             top: 10px;
+//         }
+//     }
+// }
 
 .btn {
     margin: 0.25rem 0.5rem;

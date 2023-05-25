@@ -94,7 +94,7 @@ const handlePlatetype = (plateType) => {
                     height: 60px;
                     width: 15px;
                 }
-                > span {
+                ${WeightNumber} {
                     transform: rotate(90deg);
                 }
             `
@@ -108,7 +108,7 @@ const handlePlatetype = (plateType) => {
                     height: 60px;
                     width: 15px;
                 }
-                > span {
+                ${WeightNumber} {
                     transform: rotate(90deg);
                 }
             `
@@ -117,7 +117,7 @@ const handlePlatetype = (plateType) => {
                 background-color: ${designTokens.colors.black};
                 height: 60px;
                 width: 15px;
-                > span {
+                ${WeightNumber} {
                     transform: rotate(90deg);
                 }
             `
@@ -131,7 +131,7 @@ const handlePlatetype = (plateType) => {
                     height: 60px;
                     width: 15px;
                 }
-                > span {
+                ${WeightNumber} {
                     transform: rotate(90deg);
                 }
             `
@@ -140,7 +140,6 @@ const handlePlatetype = (plateType) => {
 
 const BarbellPlate = styled.span`
     ${({ plateType }) => handlePlatetype(plateType)}
-    color: ${designTokens.colors.white};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,7 +149,9 @@ const BarbellPlate = styled.span`
     border-radius: 5px;
 `
 
-const WeightNumber = styled.span``
+const WeightNumber = styled.span`
+    color: ${designTokens.colors.white};
+`
 
 export default function PlateOnBarbell({ weightNum, plateType }) {
     let noZeroWeightNum = weightNum.toString()
@@ -158,7 +159,7 @@ export default function PlateOnBarbell({ weightNum, plateType }) {
 
     return (
         <BarbellPlate plateType={plateType}>
-            <span className="weight-number">{noZeroWeightNum}</span>
+            <WeightNumber>{noZeroWeightNum}</WeightNumber>
         </BarbellPlate>
     )
 }
