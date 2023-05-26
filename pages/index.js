@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Plate from "../components/Plate"
-import Barbell from "../components/Barbell"
+import BarbellButton from "../components/BarbellButton"
 import PlateOnBarbell from "../components/PlateOnBarbell"
 
 export default function Calculator() {
@@ -157,7 +157,7 @@ export default function Calculator() {
                         <h2>Barbells</h2>
 
                         {barbells.map((barbellWeight, index) => (
-                            <Barbell
+                            <BarbellButton
                                 weightNum={barbellWeight}
                                 onPress={() => {
                                     addBarbellWeight(barbellWeight)
