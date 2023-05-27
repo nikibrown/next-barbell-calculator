@@ -1,10 +1,29 @@
 import React from "react"
+import styled from "styled-components"
+import { designTokens } from "./designTokens"
+import Container from "./Container"
+
+const FooterWrapper = styled.footer`
+    background-color: ${designTokens.colors.black};
+    color: ${designTokens.colors.white};
+    padding: 20px 0;
+    text-align: center;
+
+    p {
+        margin: 0;
+    }
+
+    span {
+        display: inline-block;
+        margin: 0 5px;
+    }
+`
 
 export default function Footer() {
     return (
-        <footer className="bg-dark">
-            <div className="container">
-                <p className="credits text-center text-white">
+        <FooterWrapper>
+            <Container>
+                <p>
                     <span>Made with:</span>
                     <span>
                         <svg
@@ -35,7 +54,7 @@ export default function Footer() {
                         </a>
                     </span>
                 </p>
-            </div>
-        </footer>
+            </Container>
+        </FooterWrapper>
     )
 }

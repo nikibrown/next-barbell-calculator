@@ -1,6 +1,47 @@
 body {
     font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
 }
+
+// .container {
+//     width: 100%;
+//     padding-right: calc(1.5rem * 0.5);
+//     padding-left: calc(1.5rem * 0.5);
+//     margin-right: auto;
+//     margin-left: auto;
+//     position: relative;
+// }
+// @media (min-width: 576px) {
+//     .container {
+//         max-width: 540px;
+//     }
+// }
+// @media (min-width: 768px) {
+//     .container {
+//         max-width: 720px;
+//     }
+// }
+// @media (min-width: 992px) {
+//     .container {
+//         max-width: 960px;
+//     }
+// }
+// @media (min-width: 1200px) {
+//     .container,
+//     .container-lg,
+//     .container-md,
+//     .container-sm,
+//     .container-xl {
+//         max-width: 1140px;
+//     }
+// }
+// @media (min-width: 1400px) {
+//     .container {
+//         max-width: 1320px;
+//     }
+// }
 
 .app-container {
     display: flex;
@@ -8,6 +49,21 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+button {
+    font-size: 1rem;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 main {
@@ -19,15 +75,15 @@ footer {
     flex-shrink: 0;
 }
 
-// .btn {
-//     margin: 0.25rem 0.5rem;
-// }
+.text-center {
+    text-align: center;
+}
 
 /* sections */
 
 /* total weight on barbell & Reset button */
 
-.total-weight {
+.total-weight-section {
     background-color: #ddd;
     padding: 20px 0;
 }
@@ -103,70 +159,57 @@ svg {
     height: 1rem;
 }
 
-header {
-    padding: 20px 0px;
-    .info {
-        background-color: #fff;
-        border: 2px solid #000;
-        border-radius: 10px;
-        padding: 20px;
-        position: absolute;
-        top: -100%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        transition: 0.25s ease-in-out;
+// header {
+//     padding: 20px 0px;
+//     .info {
+//         background-color: #fff;
+//         border: 2px solid #000;
+//         border-radius: 10px;
+//         padding: 20px;
+//         position: absolute;
+//         top: -100%;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         z-index: 10;
+//         transition: 0.25s ease-in-out;
 
-        a {
-            color: black;
-        }
+//         a {
+//             color: black;
+//         }
 
-        &.showInfo {
-            top: 20px;
-        }
+//         &.showInfo {
+//             top: 20px;
+//         }
 
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            transition: 0.15s ease-in-out;
-            &:hover {
-                cursor: pointer;
-                opacity: 0.7;
-            }
-        }
-    }
+//         .close {
+//             position: absolute;
+//             top: 10px;
+//             right: 10px;
+//             transition: 0.15s ease-in-out;
+//             &:hover {
+//                 cursor: pointer;
+//                 opacity: 0.7;
+//             }
+//         }
+//     }
 
-    h1 {
-        margin-bottom: 0;
-    }
+//     h1 {
+//         margin-bottom: 0;
+//     }
 
-    a {
-        color: white;
-    }
+//     a {
+//         color: white;
+//     }
 
-    p {
-        margin: 0;
-    }
+//     p {
+//         margin: 0;
+//     }
 
-    svg {
-        transition: opacity 0.15s ease-in-out;
-        &:hover {
-            cursor: pointer;
-            opacity: 0.7;
-        }
-    }
-}
-
-footer {
-    padding: 20px 0;
-
-    p {
-        margin: 0;
-    }
-
-    span {
-        display: inline-block;
-        margin: 0 5px;
-    }
-}
+//     svg {
+//         transition: opacity 0.15s ease-in-out;
+//         &:hover {
+//             cursor: pointer;
+//             opacity: 0.7;
+//         }
+//     }
+// }
