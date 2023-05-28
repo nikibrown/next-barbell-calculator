@@ -1,6 +1,5 @@
 import React from "react"
 import Head from "next/head"
-import "bootstrap/dist/css/bootstrap.css"
 import "../styles.scss"
 
 function MyApp({ Component, pageProps }) {
