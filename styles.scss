@@ -1,5 +1,8 @@
 body {
     font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
 }
 
 .app-container {
@@ -19,60 +22,38 @@ footer {
     flex-shrink: 0;
 }
 
-/* Weights */
-
-.btn-plate {
-    border-radius: 50%;
-    border: none;
-    font-size: 12px;
-    line-height: 0;
-    min-width: 45px;
-    min-height: 45px;
-
-    &.weight-lg {
-        @media screen and (min-width: 900px) {
-            min-width: 90px;
-            min-height: 90px;
-        }
-    }
-
-    &.weight-sm {
-        @media screen and (min-width: 900px) {
-            min-width: 60px;
-            min-height: 60px;
-        }
-    }
-
-    &.btn .badge.plate-count-badge {
-        left: 90%;
-        top: 5px;
-        @media screen and (min-width: 900px) {
-            left: 80%;
-            top: 10px;
-        }
-    }
+h1 {
+    font-size: 2.5rem;
 }
 
-.btn {
-    margin: 0.25rem 0.5rem;
+h2 {
+    font-size: 2rem;
+}
+
+button {
+    font-size: 1rem;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 /* sections */
 
 /* total weight on barbell & Reset button */
 
-.total-weight {
+.total-weight-section {
     background-color: #ddd;
-    padding: 20px 0;
 }
 
-/* weight plates on the barbell when after clicking */
-
-.weights-on-barbell {
+section {
     padding: 20px 0;
+    text-align: center;
+    @media screen and (min-width: 900px) {
+        padding: 40px 0;
+    }
 }
 
-.barbell-weights-container {
+.barbell-container {
     margin: 40px 0;
     height: 70px;
     display: flex;
@@ -89,6 +70,7 @@ footer {
         height: 120px;
     }
 
+    // barbell
     &:after {
         content: "";
         width: 100%;
@@ -102,200 +84,37 @@ footer {
     }
 }
 
-.weights {
+.plates-on-barbell {
     display: flex;
     position: relative;
     align-items: center;
 
-    &.left-weights {
+    &.left-plates {
         margin-left: 20px;
     }
-    &.right-weights {
+    &.right-plates {
         margin-right: 20px;
     }
 }
 
-.barbell-plate {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    z-index: 1;
-    border: 1px solid #ddd;
-    font-size: 10px;
-    border-radius: 5px;
-
-    @media screen and (min-width: 900px) {
-        height: 120px;
-    }
-}
-
-.barbell-plate-55 {
-    background-color: #dc3545;
-    width: 20px;
-
-    @media screen and (min-width: 900px) {
-        width: 55px;
-    }
-}
-
-.barbell-plate-45 {
-    background-color: #0d6efd;
-    width: 20px;
-
-    @media screen and (min-width: 900px) {
-        width: 45px;
-    }
-}
-
-.barbell-plate-35 {
-    background-color: #ffc107;
-    width: 20px;
-
-    @media screen and (min-width: 900px) {
-        width: 35px;
-    }
-}
-
-.barbell-plate-25 {
-    background-color: #157347;
-    width: 20px;
-
-    @media screen and (min-width: 900px) {
-        width: 25px;
-    }
-}
-
-.barbell-plate-15 {
-    background-color: black;
-    width: 20px;
-}
-
-.barbell-plate-10 {
-    background-color: black;
-    width: 20px;
-}
-
-.barbell-plate-5 {
-    background-color: black;
-    width: 15px;
-    height: 60px;
-}
-
-.barbell-plate-1 {
-    background-color: black;
-    width: 15px;
-    height: 60px;
-}
-
-[class*="barbell-plate-0"] {
-    background-color: black;
-    width: 15px;
-    height: 60px;
-}
-
-/* all fractional plates */
-
-[class*="barbell-plate-0"] .weight-number {
-    transform: rotate(90deg);
-}
-
 /* list of barbell buttons */
-
-.barbells {
-    padding: 20px 0;
-    text-align: center;
-
-    .btn:disabled {
-        &:hover {
-            cursor: not-allowed;
-        }
-        &.checked {
-            background-color: #000;
-        }
-    }
-}
 
 /* list of plates to put on barbell */
 
-.plates {
-    text-align: center;
-    padding: 20px 0;
+.plates-section {
+    .large-plates {
+        margin: 15px 0;
+    }
+
+    .small-plates {
+        margin: 15px 0;
+    }
 }
 
 /* Header / footer etc */
 
 svg {
-    color: white;
+    color: #fff;
     width: 1rem;
     height: 1rem;
-}
-
-header {
-    padding: 20px 0px;
-    .info {
-        background-color: white;
-        border: 2px solid #000;
-        border-radius: 10px;
-        padding: 20px;
-        position: absolute;
-        top: -100%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        transition: 0.25s ease-in-out;
-
-        a {
-            color: black;
-        }
-
-        &.showInfo {
-            top: 20px;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            transition: 0.15s ease-in-out;
-            &:hover {
-                cursor: pointer;
-                opacity: 0.7;
-            }
-        }
-    }
-
-    h1 {
-        margin-bottom: 0;
-    }
-
-    a {
-        color: white;
-    }
-
-    p {
-        margin: 0;
-    }
-
-    svg {
-        transition: opacity 0.15s ease-in-out;
-        &:hover {
-            cursor: pointer;
-            opacity: 0.7;
-        }
-    }
-}
-
-footer {
-    padding: 20px 0;
-
-    p {
-        margin: 0;
-    }
-
-    span {
-        display: inline-block;
-        margin: 0 5px;
-    }
 }

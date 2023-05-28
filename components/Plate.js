@@ -1,21 +1,118 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
+import styled from "styled-components"
+import { designTokens } from "./designTokens"
 
-export default function Plate({
-    weightNum,
+const PlateWrapper = styled.span`
+    display: inline-block;
+    margin: 0.25rem 0.5rem;
+    position: relative;
+`
+
+const handlePlateColor = (plateType) => {
+    switch (plateType) {
+        case "plate55":
+            return designTokens.colors.red
+        case "plate45":
+            return designTokens.colors.blue
+        case "plate35":
+            return designTokens.colors.yellow
+        case "plate25":
+            return designTokens.colors.green
+        default:
+            return designTokens.colors.black
+    }
+}
+
+const handlePlateColorHover = (plateType) => {
+    switch (plateType) {
+        case "plate55":
+            return designTokens.colors.redHover
+        case "plate45":
+            return designTokens.colors.blueHover
+        case "plate35":
+            return designTokens.colors.yellowHover
+        case "plate25":
+            return designTokens.colors.greenHover
+        default:
+            return designTokens.colors.blackHover
+    }
+}
+
+const PlateBtn = styled.button`
+    background-color: ${({ plateType }) => handlePlateColor(plateType)};
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 0;
+    min-height: 45px;
+    min-width: 45px;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover {
+        background-color: ${({ plateType }) =>
+            handlePlateColorHover(plateType)};
+    }
+
+    ${(props) => {
+        switch (props.type) {
+            case "large":
+                return `
+                    @media screen and (min-width: 900px) {
+                        min-height: 90px;
+                        min-width: 90px;
+                    }
+                `
+            case "small":
+                return `
+                    @media screen and (min-width: 900px) {
+                        min-height: 60px;
+                        min-width: 60px;
+                    }
+                `
+        }
+    }}
+`
+
+const PlateNum = styled.span`
+    color: #fff;
+`
+
+const PlateCountBadge = styled.span`
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+    color: #000;
+    display: inline-block;
+    font-size: 10px;
+    height: 20px;
+    line-height: 2;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 5px;
+    vertical-align: baseline;
+    white-space: nowrap;
+    width: 20px;
+`
+
+export default function LargePlate({
     onPress,
-    classNames,
+    plateType,
     reset,
     setReset,
+    weightNum,
+    type,
 }) {
     const [plateCount, setPlateCount] = useState(0)
-
-    let noZeroWeightNum = weightNum.toString()
-    noZeroWeightNum = noZeroWeightNum.replace("0.", ".")
 
     const handleUpdatePlatecount = () => {
         setPlateCount(plateCount + 2)
     }
+
+    let noZeroWeightNum = weightNum.toString()
+    noZeroWeightNum = noZeroWeightNum.replace("0.", ".")
 
     useEffect(() => {
         if (reset) {
@@ -25,26 +122,22 @@ export default function Plate({
     }, [reset])
 
     return (
-        <span
-            style={{ display: "inline-block" }}
-            onClick={handleUpdatePlatecount}
-        >
-            <button type="button" className={classNames} onClick={onPress}>
-                {noZeroWeightNum}
+        <PlateWrapper onClick={handleUpdatePlatecount}>
+            <PlateBtn type={type} plateType={plateType} onClick={onPress}>
+                <PlateNum>{noZeroWeightNum}</PlateNum>
 
                 {plateCount > 0 ? (
-                    <span className="plate-count-badge text-dark position-absolute translate-middle badge rounded-pill bg-light border border-dark">
+                    <PlateCountBadge className="plate-count-badge">
                         {plateCount}
-                    </span>
+                    </PlateCountBadge>
                 ) : null}
-            </button>
-        </span>
+            </PlateBtn>
+        </PlateWrapper>
     )
 }
 
 // Storybook
-Plate.propTypes = {
+LargePlate.propTypes = {
     weightNum: PropTypes.number,
     onClick: PropTypes.func,
-    classNames: PropTypes.string,
 }
