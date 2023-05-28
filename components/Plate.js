@@ -87,12 +87,11 @@ const PlateCountBadge = styled.span`
     display: inline-block;
     font-size: 10px;
     height: 20px;
-    line-height: 1;
-    padding: 4px;
+    line-height: 2;
     position: absolute;
     right: 0;
     text-align: center;
-    top: 10px;
+    top: 5px;
     vertical-align: baseline;
     white-space: nowrap;
     width: 20px;

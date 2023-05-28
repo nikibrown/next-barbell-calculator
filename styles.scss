@@ -5,50 +5,21 @@ body {
     margin: 0;
 }
 
-// .container {
-//     width: 100%;
-//     padding-right: calc(1.5rem * 0.5);
-//     padding-left: calc(1.5rem * 0.5);
-//     margin-right: auto;
-//     margin-left: auto;
-//     position: relative;
-// }
-// @media (min-width: 576px) {
-//     .container {
-//         max-width: 540px;
-//     }
-// }
-// @media (min-width: 768px) {
-//     .container {
-//         max-width: 720px;
-//     }
-// }
-// @media (min-width: 992px) {
-//     .container {
-//         max-width: 960px;
-//     }
-// }
-// @media (min-width: 1200px) {
-//     .container,
-//     .container-lg,
-//     .container-md,
-//     .container-sm,
-//     .container-xl {
-//         max-width: 1140px;
-//     }
-// }
-// @media (min-width: 1400px) {
-//     .container {
-//         max-width: 1320px;
-//     }
-// }
-
 .app-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
     padding: 0;
+}
+
+main {
+    flex: 1;
+}
+
+header,
+footer {
+    flex-shrink: 0;
 }
 
 h1 {
@@ -66,35 +37,23 @@ button {
     }
 }
 
-main {
-    flex: 1;
-}
-
-header,
-footer {
-    flex-shrink: 0;
-}
-
-.text-center {
-    text-align: center;
-}
-
 /* sections */
 
 /* total weight on barbell & Reset button */
 
 .total-weight-section {
     background-color: #ddd;
-    padding: 20px 0;
 }
 
-/* weight plates on the barbell when after clicking */
-
-.weights-on-barbell-section {
+section {
     padding: 20px 0;
+    text-align: center;
+    @media screen and (min-width: 900px) {
+        padding: 40px 0;
+    }
 }
 
-.barbell-weights-container {
+.barbell-container {
     margin: 40px 0;
     height: 70px;
     display: flex;
@@ -111,6 +70,7 @@ footer {
         height: 120px;
     }
 
+    // barbell
     &:after {
         content: "";
         width: 100%;
@@ -124,31 +84,31 @@ footer {
     }
 }
 
-.weights {
+.plates-on-barbell {
     display: flex;
     position: relative;
     align-items: center;
 
-    &.left-weights {
+    &.left-plates {
         margin-left: 20px;
     }
-    &.right-weights {
+    &.right-plates {
         margin-right: 20px;
     }
 }
 
 /* list of barbell buttons */
 
-.barbells-section {
-    padding: 20px 0;
-    text-align: center;
-}
-
 /* list of plates to put on barbell */
 
 .plates-section {
-    text-align: center;
-    padding: 20px 0;
+    .large-plates {
+        margin: 15px 0;
+    }
+
+    .small-plates {
+        margin: 15px 0;
+    }
 }
 
 /* Header / footer etc */
@@ -158,58 +118,3 @@ svg {
     width: 1rem;
     height: 1rem;
 }
-
-// header {
-//     padding: 20px 0px;
-//     .info {
-//         background-color: #fff;
-//         border: 2px solid #000;
-//         border-radius: 10px;
-//         padding: 20px;
-//         position: absolute;
-//         top: -100%;
-//         left: 50%;
-//         transform: translateX(-50%);
-//         z-index: 10;
-//         transition: 0.25s ease-in-out;
-
-//         a {
-//             color: black;
-//         }
-
-//         &.showInfo {
-//             top: 20px;
-//         }
-
-//         .close {
-//             position: absolute;
-//             top: 10px;
-//             right: 10px;
-//             transition: 0.15s ease-in-out;
-//             &:hover {
-//                 cursor: pointer;
-//                 opacity: 0.7;
-//             }
-//         }
-//     }
-
-//     h1 {
-//         margin-bottom: 0;
-//     }
-
-//     a {
-//         color: white;
-//     }
-
-//     p {
-//         margin: 0;
-//     }
-
-//     svg {
-//         transition: opacity 0.15s ease-in-out;
-//         &:hover {
-//             cursor: pointer;
-//             opacity: 0.7;
-//         }
-//     }
-// }
