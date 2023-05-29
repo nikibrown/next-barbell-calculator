@@ -37,30 +37,44 @@ const InfoModal = styled.div`
     color: ${designTokens.colors.black};
     padding: 20px;
     position: absolute;
-    top: -100%;
+    //top: -100%;
+
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     z-index: 10;
     transition: 0.25s ease-in-out;
 
     a {
-        color: ${designTokens.colors.black};
+        color: ${designTokens.colors.black}!important;
     }
 
-    &.showInfo {
-        top: 20px;
-    }
+    // &.showInfo {
+    //     top: 20px;
+    // }
 
     .close {
         position: absolute;
         top: 10px;
         right: 10px;
         transition: 0.15s ease-in-out;
+        z-index: 20;
         &:hover {
             cursor: pointer;
             opacity: 0.7;
         }
     }
+`
+
+const ModalBackground = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9;
 `
 
 const NavbarWrapper = styled.nav`
@@ -82,19 +96,23 @@ export default function Header() {
 
     return (
         <HeaderWrapper>
-            <InfoModal className={`info ${showInfo == true ? "showInfo" : ""}`}>
-                <span className="close" onClick={handleShowInfoToggle}>
-                    &times;
-                </span>
+            {showInfo && (
+                <ModalBackground onClick={handleShowInfoToggle}>
+                    <InfoModal>
+                        <span className="close" onClick={handleShowInfoToggle}>
+                            &times;
+                        </span>
 
-                <p>
-                    Barbell calculator is a made by{" "}
-                    <a href="https://nikibrown.com" target="_blank">
-                        Niki Brown
-                    </a>{" "}
-                    who is bad at math. 🤣 <br />
-                </p>
-            </InfoModal>
+                        <p>
+                            Barbell calculator is a made by{" "}
+                            <a href="https://nikibrown.com" target="_blank">
+                                Niki Brown
+                            </a>{" "}
+                            who is bad at math. 🤣 <br />
+                        </p>
+                    </InfoModal>
+                </ModalBackground>
+            )}
 
             <Container>
                 <NavbarWrapper>
