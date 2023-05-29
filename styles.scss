@@ -48,18 +48,14 @@ button {
 section {
     padding: 20px 0;
     text-align: center;
-    @media screen and (min-width: 900px) {
-        padding: 40px 0;
-    }
 }
 
 .barbell-container {
-    margin: 40px 0;
+    margin: 20px 0;
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px 0;
     width: 100%;
     position: relative;
     z-index: 1;
