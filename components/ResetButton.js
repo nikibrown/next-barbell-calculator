@@ -17,11 +17,11 @@ const ResetButtonWrapper = styled.button`
     }
 `
 
-export default function ResetButton({ onPress }) {
+export default function ResetButton({ resetEverything }) {
     return (
         <ResetButtonWrapper
             className=""
-            onClick={onPress}
+            onClick={resetEverything}
             aria-label="Reset Barbell"
         >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

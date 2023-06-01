@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { designTokens } from "./designTokens"
 import Container from "./Container"
+import ResetButton from "./ResetButton"
 
 const HeaderWrapper = styled.header`
     background-color: ${designTokens.colors.black};
@@ -19,12 +20,16 @@ const NavbarWrapper = styled.nav`
     text-align: center;
 `
 
-export default function Header() {
+export default function Header({ resetEverything }) {
     return (
         <HeaderWrapper>
             <Container>
                 <NavbarWrapper>
                     <h1>Barbell Calculator</h1>
+                    <ResetButton
+                        resetEverything={() => resetEverything()}
+                        aria-label="Reset Barbell"
+                    />
                 </NavbarWrapper>
             </Container>
         </HeaderWrapper>
