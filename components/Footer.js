@@ -1,12 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { designTokens } from "./designTokens"
 import Container from "./Container"
+import { useClickAway } from "@uidotdev/usehooks"
 
 const FooterWrapper = styled.footer`
     background-color: ${designTokens.colors.black};
     color: ${designTokens.colors.white};
     padding: 20px 0;
+    position: relative;
     text-align: center;
 
     p {
@@ -21,15 +23,84 @@ const FooterWrapper = styled.footer`
     .nextjs {
         fill: #ffffff;
     }
+
+    .info svg,
+    .github svg {
+        transition: opacity 0.15s ease-in-out;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    }
+`
+
+const InfoDialog = styled.dialog`
+    //box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    color: ${designTokens.colors.black};
+    padding: 40px;
+    position: absolute;
+    z-index: 10;
+    bottom: 40px;
+    width: 75vw;
+    margin: auto;
+    display: block;
+    animation: expand 0.15s ease-in-out;
+    border-radius: 8px;
+    text-align: center;
+
+    a {
+        color: ${designTokens.colors.black}!important;
+    }
+
+    .close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        transition: 0.15s ease-in-out;
+        z-index: 20;
+        font-size: 30px;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    }
 `
 
 export default function Footer() {
+    const [showInfo, setShowInfo] = useState(false)
+
+    const ref = useClickAway(() => {
+        setShowInfo(false)
+    })
     return (
         <FooterWrapper>
+            {showInfo && (
+                <InfoDialog ref={ref}>
+                    <span
+                        className="close"
+                        onClick={() => {
+                            setShowInfo(false)
+                        }}
+                    >
+                        &times;
+                    </span>
+
+                    <p>
+                        Barbell calculator is a made by{" "}
+                        <a href="https://nikibrown.com" target="_blank">
+                            Niki Brown
+                        </a>
+                        , who is bad at math. 🤣 <br />
+                    </p>
+                </InfoDialog>
+            )}
             <Container>
                 <p>
                     <span>Made with:</span>
-                    <span>
+                    <span className="react">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512"
@@ -40,7 +111,7 @@ export default function Footer() {
                             />
                         </svg>
                     </span>
-                    <span>
+                    <span className="next">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 800 800"
@@ -62,7 +133,7 @@ export default function Footer() {
                             </g>
                         </svg>
                     </span>
-                    <span>
+                    <span className="github">
                         <a
                             href="https://github.com/nikibrown/next-barbell-calculator"
                             target="_blank"
@@ -78,6 +149,20 @@ export default function Footer() {
                                 />
                             </svg>
                         </a>
+                    </span>
+                    <span className="info">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            onClick={() => {
+                                setShowInfo(true)
+                            }}
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                            />
+                        </svg>
                     </span>
                 </p>
             </Container>

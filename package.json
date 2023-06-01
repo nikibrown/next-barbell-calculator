@@ -9,6 +9,7 @@
         "chromatic": "npx chromatic --project-token=chpt_0b981eff7c2c305"
     },
     "dependencies": {
+        "@uidotdev/usehooks": "^2.0.1",
         "next": "latest",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
