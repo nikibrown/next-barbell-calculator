@@ -48,9 +48,6 @@ button {
 section {
     padding: 20px 0;
     text-align: center;
-    @media screen and (min-width: 900px) {
-        padding: 40px 0;
-    }
 }
 
 .barbell-container {
@@ -59,7 +56,6 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px 0;
     width: 100%;
     position: relative;
     z-index: 1;
@@ -117,4 +113,13 @@ svg {
     color: #fff;
     width: 1rem;
     height: 1rem;
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(0.75);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

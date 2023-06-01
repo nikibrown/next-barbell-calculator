@@ -13,6 +13,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@uidotdev/usehooks": "^2.0.1",
     "bootstrap": "^5.2.3",
     "next": "latest",
     "react": "^18.2.0",
