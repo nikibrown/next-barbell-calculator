@@ -6,9 +6,9 @@ const ResetButtonWrapper = styled.button`
     background-color: ${designTokens.colors.red};
     border: none;
     border-radius: 6px;
-    padding: 6px 12px;
+    padding: 10px 12px 6px 12px;
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 0;
     transition: background-color 0.15s ease-in-out;
 

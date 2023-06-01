@@ -105,10 +105,10 @@ export default function Calculator() {
             <main>
                 <section className="total-weight-section text-center">
                     <Container>
-                        <h1>
+                        <h2>
                             {weight}
                             <small>lb</small>
-                        </h1>
+                        </h2>
 
                         <ResetButton
                             onPress={() => resetEverything()}

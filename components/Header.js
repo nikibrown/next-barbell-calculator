@@ -6,10 +6,10 @@ import Container from "./Container"
 const HeaderWrapper = styled.header`
     background-color: ${designTokens.colors.black};
     color: ${designTokens.colors.white};
-    padding: 20px 0px;
+    padding: 10px 0px;
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin: 0;
     }
 `
