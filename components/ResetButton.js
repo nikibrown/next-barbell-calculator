@@ -10,10 +10,18 @@ const ResetButtonWrapper = styled.button`
     position: absolute;
     right: 10px;
     top: 0;
-    transition: background-color 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+
+    svg {
+        transition: 0.3s ease-in-out;
+        rotate: 0deg;
+    }
 
     &:hover {
         background-color: ${designTokens.colors.redHover};
+        svg {
+            rotate: 360deg;
+        }
     }
 `
 
