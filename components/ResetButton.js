@@ -6,11 +6,15 @@ const ResetButtonWrapper = styled.button`
     background-color: ${designTokens.colors.red};
     border: none;
     border-radius: 6px;
-    padding: 10px 12px 6px 12px;
+    padding: 7px 8px 3px 8px;
     position: absolute;
     right: 10px;
     top: 0;
     transition: all 0.15s ease-in-out;
+
+    @media screen and (min-width: 900px) {
+        padding: 10px 12px 6px 12px;
+    }
 
     svg {
         transition: 0.3s ease-in-out;
