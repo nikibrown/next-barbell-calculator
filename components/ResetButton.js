@@ -6,22 +6,30 @@ const ResetButtonWrapper = styled.button`
     background-color: ${designTokens.colors.red};
     border: none;
     border-radius: 6px;
-    padding: 6px 12px;
+    padding: 10px 12px 6px 12px;
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 0;
-    transition: background-color 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+
+    svg {
+        transition: 0.3s ease-in-out;
+        rotate: 0deg;
+    }
 
     &:hover {
         background-color: ${designTokens.colors.redHover};
+        svg {
+            rotate: 360deg;
+        }
     }
 `
 
-export default function ResetButton({ onPress }) {
+export default function ResetButton({ resetEverything }) {
     return (
         <ResetButtonWrapper
             className=""
-            onClick={onPress}
+            onClick={resetEverything}
             aria-label="Reset Barbell"
         >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

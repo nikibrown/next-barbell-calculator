@@ -4,7 +4,7 @@ import Footer from "../components/Footer"
 import Plate from "../components/Plate"
 import BarbellButton from "../components/BarbellButton"
 import PlateOnBarbell from "../components/PlateOnBarbell"
-import ResetButton from "../components/ResetButton"
+// import ResetButton from "../components/ResetButton"
 import Container from "../components/Container"
 
 export default function Calculator() {
@@ -101,19 +101,19 @@ export default function Calculator() {
 
     return (
         <div className="app-container">
-            <Header />
+            <Header resetEverything={resetEverything} />
             <main>
                 <section className="total-weight-section text-center">
                     <Container>
-                        <h1>
+                        <h2>
                             {weight}
                             <small>lb</small>
-                        </h1>
+                        </h2>
 
-                        <ResetButton
+                        {/* <ResetButton
                             onPress={() => resetEverything()}
                             aria-label="Reset Barbell"
-                        />
+                        /> */}
 
                         <section className="plates-on-barbell-section">
                             <div className="barbell-container">

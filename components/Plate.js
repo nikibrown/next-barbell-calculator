@@ -89,12 +89,18 @@ const PlateCountBadge = styled.span`
     height: 20px;
     line-height: 2;
     position: absolute;
-    right: 0;
+    top: -5px;
     text-align: center;
-    top: 5px;
+    right: -5px;
+
     vertical-align: baseline;
     white-space: nowrap;
     width: 20px;
+
+    @media screen and (min-width: 900px) {
+        top: 5px;
+        right: 0;
+    }
 `
 
 export default function LargePlate({
