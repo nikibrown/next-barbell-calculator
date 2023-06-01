@@ -99,12 +99,9 @@ section {
 /* list of plates to put on barbell */
 
 .plates-section {
-    .large-plates {
-        margin: 15px 0;
-    }
-
+    .large-plates,
     .small-plates {
-        margin: 15px 0;
+        margin: 10px 0;
     }
 }
 

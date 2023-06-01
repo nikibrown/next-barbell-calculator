@@ -10,8 +10,12 @@ const HeaderWrapper = styled.header`
     padding: 10px 0px;
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: 0;
+
+        @media screen and (min-width: 900px) {
+            font-size: 2rem;
+        }
     }
 `
 

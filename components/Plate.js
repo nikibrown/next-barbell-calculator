@@ -5,8 +5,12 @@ import { designTokens } from "./designTokens"
 
 const PlateWrapper = styled.span`
     display: inline-block;
-    margin: 0.25rem 0.5rem;
+    margin: 0.2rem;
     position: relative;
+
+    @media screen and (min-width: 900px) {
+        margin: 0.25rem 0.5rem;
+    }
 `
 
 const handlePlateColor = (plateType) => {
