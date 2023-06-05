@@ -16,10 +16,7 @@ function MyApp({ Component, pageProps }) {
                 <meta name="robots" content="index,follow" />
                 <meta name="rating" content="general" />
                 <meta name="distribution" content="global" />
-                <meta
-                    name="URL"
-                    content="https://react-barbell-calculator.vercel.app/"
-                />
+                <meta name="URL" content="https://barbellcalculator.com" />
                 <meta name="revisit-after" content="3 days" />
                 <meta
                     name="copyright"
