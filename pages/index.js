@@ -4,7 +4,6 @@ import Footer from "../components/Footer"
 import Plate from "../components/Plate"
 import BarbellButton from "../components/BarbellButton"
 import PlateOnBarbell from "../components/PlateOnBarbell"
-// import ResetButton from "../components/ResetButton"
 import Container from "../components/Container"
 
 export default function Calculator() {
