@@ -19,8 +19,13 @@ const HeaderWrapper = styled.header`
     }
 `
 
+const Fieldset = styled.fieldset`
+    border: none;
+`
+
 const NavbarWrapper = styled.nav`
     color: ${designTokens.colors.white};
+    display: flex;
     text-align: center;
 `
 
@@ -30,6 +35,7 @@ export default function Header({ resetEverything }) {
             <Container>
                 <NavbarWrapper>
                     <h1>Barbell Calculator</h1>
+
                     <ResetButton
                         resetEverything={() => resetEverything()}
                         aria-label="Reset Barbell"

@@ -13,38 +13,61 @@ const PlateWrapper = styled.span`
     }
 `
 
-const handlePlateColor = (plateType) => {
-    switch (plateType) {
-        case "plate55":
+const handlePlateSize = (plateSize) => {
+    switch (plateSize) {
+        case "small":
+            return `
+                    @media screen and (min-width: 900px) {
+                        min-height: 60px;
+                        min-width: 60px;
+                    }
+                `
+        default:
+            return `
+                    @media screen and (min-width: 900px) {
+                        min-height: 90px;
+                        min-width: 90px;
+                    }`
+    }
+}
+
+const handlePlateColor = (plateColor) => {
+    switch (plateColor) {
+        case "red":
             return designTokens.colors.red
-        case "plate45":
+        case "blue":
             return designTokens.colors.blue
-        case "plate35":
+        case "yellow":
             return designTokens.colors.yellow
-        case "plate25":
+        case "green":
             return designTokens.colors.green
+        case "white":
+            return designTokens.colors.white
         default:
             return designTokens.colors.black
     }
 }
 
-const handlePlateColorHover = (plateType) => {
-    switch (plateType) {
-        case "plate55":
+const handlePlateColorHover = (plateColor) => {
+    switch (plateColor) {
+        case "red":
             return designTokens.colors.redHover
-        case "plate45":
+        case "blue":
             return designTokens.colors.blueHover
-        case "plate35":
+        case "yellow":
             return designTokens.colors.yellowHover
-        case "plate25":
+        case "green":
             return designTokens.colors.greenHover
+        case "white":
+            return designTokens.colors.whiteHover
         default:
             return designTokens.colors.blackHover
     }
 }
 
 const PlateBtn = styled.button`
-    background-color: ${({ plateType }) => handlePlateColor(plateType)};
+    ${({ plateSize }) => handlePlateSize(plateSize)}
+    background-color: ${({ plateColor }) => handlePlateColor(plateColor)};
     border: none;
     border-radius: 50%;
     display: inline-block;
@@ -55,28 +78,9 @@ const PlateBtn = styled.button`
     transition: background-color 0.15s ease-in-out;
 
     &:hover {
-        background-color: ${({ plateType }) =>
-            handlePlateColorHover(plateType)};
+        background-color: ${({ plateColor }) =>
+            handlePlateColorHover(plateColor)};
     }
-
-    ${(props) => {
-        switch (props.type) {
-            case "large":
-                return `
-                    @media screen and (min-width: 900px) {
-                        min-height: 90px;
-                        min-width: 90px;
-                    }
-                `
-            case "small":
-                return `
-                    @media screen and (min-width: 900px) {
-                        min-height: 60px;
-                        min-width: 60px;
-                    }
-                `
-        }
-    }}
 `
 
 const PlateNum = styled.span`
@@ -109,11 +113,12 @@ const PlateCountBadge = styled.span`
 
 export default function LargePlate({
     onPress,
-    plateType,
+    plateColor,
     reset,
     setReset,
     weightNum,
-    type,
+    plateSize,
+    unit,
 }) {
     const [plateCount, setPlateCount] = useState(0)
 
@@ -133,8 +138,14 @@ export default function LargePlate({
 
     return (
         <PlateWrapper onClick={handleUpdatePlatecount}>
-            <PlateBtn type={type} plateType={plateType} onClick={onPress}>
-                <PlateNum>{noZeroWeightNum}</PlateNum>
+            <PlateBtn
+                plateSize={plateSize}
+                plateColor={plateColor}
+                onClick={onPress}
+            >
+                <PlateNum>
+                    {noZeroWeightNum} {unit}
+                </PlateNum>
 
                 {plateCount > 0 ? (
                     <PlateCountBadge className="plate-count-badge">

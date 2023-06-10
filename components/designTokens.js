@@ -11,5 +11,6 @@ export const designTokens = {
         black: "#212529",
         blackHover: "#1e2125",
         white: "#fff",
+        whiteHover: "#eee",
     },
 }
