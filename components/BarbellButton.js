@@ -42,6 +42,7 @@ export default function Barbell({
     disableBarbell,
     reset,
     setReset,
+    unit,
 }) {
     const [barbellSelected, setBarbellSelection] = useState(false)
 
@@ -66,7 +67,7 @@ export default function Barbell({
                 onClick={onPress}
                 disabled={disableBarbell}
             >
-                {weightNum} Barbell
+                {weightNum} {unit}
             </BarbellButton>
         </BarbellButtonWrapper>
     )

@@ -38,6 +38,26 @@ button {
     }
 }
 
+input[type="radio"] {
+    display: inline-block;
+}
+
+.flex-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    @media screen and (min-width: 900px) {
+        gap: 50px;
+    }
+}
+
+.column {
+    input {
+        margin-top: 13px;
+    }
+}
+
 /* sections */
 
 /* total weight on barbell & Reset button */
