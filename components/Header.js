@@ -18,11 +18,6 @@ const HeaderWrapper = styled.header`
         }
     }
 `
-
-const Fieldset = styled.fieldset`
-    border: none;
-`
-
 const NavbarWrapper = styled.nav`
     color: ${designTokens.colors.white};
     display: flex;
