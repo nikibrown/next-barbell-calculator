@@ -42,6 +42,12 @@ input[type="radio"] {
     display: inline-block;
 }
 
+label {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 .flex-container {
     justify-content: center;
     display: flex;
