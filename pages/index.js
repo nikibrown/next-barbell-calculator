@@ -5,130 +5,9 @@ import Plate from "../components/Plate"
 import BarbellButton from "../components/BarbellButton"
 import PlateOnBarbell from "../components/PlateOnBarbell"
 import Container from "../components/Container"
+import { weightData } from "../data/weightData.js"
 
 export default function Calculator() {
-    // data
-    const lbBarbells = [45, 35, 15]
-
-    const kgBarbells = [20, 15, 6.8]
-
-    const lbSmallPlates = [
-        {
-            weight: 5,
-            size: "small",
-            color: "black",
-        },
-        {
-            weight: 1,
-            size: "small",
-            color: "black",
-        },
-        {
-            weight: 0.75,
-            size: "small",
-            color: "black",
-        },
-        {
-            weight: 0.5,
-            size: "small",
-            color: "black",
-        },
-        {
-            weight: 0.25,
-            size: "small",
-            color: "black",
-        },
-    ]
-
-    const kgSmallPlates = [
-        {
-            weight: 5,
-            size: "small",
-            color: "black",
-        },
-        {
-            weight: 2.5,
-            size: "small",
-            color: "black",
-        },
-        {
-            weight: 2,
-            size: "small",
-            color: "black",
-        },
-        {
-            weight: 1.5,
-            size: "small",
-            color: "black",
-        },
-        {
-            weight: 1,
-            size: "small",
-            color: "black",
-        },
-        {
-            weight: 0.5,
-            size: "small",
-            color: "black",
-        },
-    ]
-
-    const lbLargePlates = [
-        {
-            weight: 55,
-            size: "large",
-            color: "red",
-        },
-        {
-            weight: 45,
-            size: "large",
-            color: "blue",
-        },
-        {
-            weight: 35,
-            size: "large",
-            color: "yellow",
-        },
-        {
-            weight: 25,
-            size: "large",
-            color: "green",
-        },
-        {
-            weight: 15,
-            size: "large",
-            color: "black",
-        },
-        {
-            weight: 10,
-            size: "large",
-            color: "black",
-        },
-    ]
-
-    const kgLargePlates = [
-        {
-            weight: 25,
-            size: "large",
-            color: "red",
-        },
-        {
-            weight: 20,
-            size: "large",
-            color: "blue",
-        },
-        {
-            weight: 15,
-            size: "large",
-            color: "yellow",
-        },
-        {
-            weight: 10,
-            size: "large",
-            color: "green",
-        },
-    ]
-
     // State
 
     // add up the total weight
@@ -261,36 +140,40 @@ export default function Calculator() {
                                 <h2>Barbells</h2>
 
                                 {isPounds
-                                    ? lbBarbells.map((barbellWeight, index) => (
-                                          <BarbellButton
-                                              weightNum={barbellWeight}
-                                              onPress={() => {
-                                                  addBarbellWeight(
-                                                      barbellWeight
-                                                  )
-                                              }}
-                                              disableBarbell={barbell}
-                                              reset={reset}
-                                              setReset={setReset}
-                                              key={index}
-                                              unit={"lb"}
-                                          />
-                                      ))
-                                    : kgBarbells.map((barbellWeight, index) => (
-                                          <BarbellButton
-                                              weightNum={barbellWeight}
-                                              onPress={() => {
-                                                  addBarbellWeight(
-                                                      barbellWeight
-                                                  )
-                                              }}
-                                              disableBarbell={barbell}
-                                              reset={reset}
-                                              setReset={setReset}
-                                              key={index}
-                                              unit={"kg"}
-                                          />
-                                      ))}
+                                    ? weightData.barbells.lbBarbells.map(
+                                          (barbellWeight, index) => (
+                                              <BarbellButton
+                                                  weightNum={barbellWeight}
+                                                  onPress={() => {
+                                                      addBarbellWeight(
+                                                          barbellWeight
+                                                      )
+                                                  }}
+                                                  disableBarbell={barbell}
+                                                  reset={reset}
+                                                  setReset={setReset}
+                                                  key={index}
+                                                  unit={"lb"}
+                                              />
+                                          )
+                                      )
+                                    : weightData.barbells.kgBarbells.map(
+                                          (barbellWeight, index) => (
+                                              <BarbellButton
+                                                  weightNum={barbellWeight}
+                                                  onPress={() => {
+                                                      addBarbellWeight(
+                                                          barbellWeight
+                                                      )
+                                                  }}
+                                                  disableBarbell={barbell}
+                                                  reset={reset}
+                                                  setReset={setReset}
+                                                  key={index}
+                                                  unit={"kg"}
+                                              />
+                                          )
+                                      )}
                             </div>
                         </div>
                     </Container>
@@ -302,62 +185,70 @@ export default function Calculator() {
 
                         <div className="large-plates">
                             {isPounds
-                                ? lbLargePlates.map((plate, index) => (
-                                      <Plate
-                                          plateSize={plate.size}
-                                          plateColor={plate.color}
-                                          weightNum={plate.weight}
-                                          onPress={() => addWeight(plate)}
-                                          reset={reset}
-                                          setReset={setReset}
-                                          key={index}
-                                          type={plate.size}
-                                          unit={"lb"}
-                                      />
-                                  ))
-                                : kgLargePlates.map((plate, index) => (
-                                      <Plate
-                                          plateSize={plate.size}
-                                          plateColor={plate.color}
-                                          weightNum={plate.weight}
-                                          onPress={() => addWeight(plate)}
-                                          reset={reset}
-                                          setReset={setReset}
-                                          key={index}
-                                          type={plate.type}
-                                          unit={"kg"}
-                                      />
-                                  ))}
+                                ? weightData.plates.lbLargePlates.map(
+                                      (plate, index) => (
+                                          <Plate
+                                              plateSize={plate.size}
+                                              plateColor={plate.color}
+                                              weightNum={plate.weight}
+                                              onPress={() => addWeight(plate)}
+                                              reset={reset}
+                                              setReset={setReset}
+                                              key={index}
+                                              type={plate.size}
+                                              unit={"lb"}
+                                          />
+                                      )
+                                  )
+                                : weightData.plates.kgLargePlates.map(
+                                      (plate, index) => (
+                                          <Plate
+                                              plateSize={plate.size}
+                                              plateColor={plate.color}
+                                              weightNum={plate.weight}
+                                              onPress={() => addWeight(plate)}
+                                              reset={reset}
+                                              setReset={setReset}
+                                              key={index}
+                                              type={plate.type}
+                                              unit={"kg"}
+                                          />
+                                      )
+                                  )}
                         </div>
 
                         <div className="small-plates">
                             {isPounds
-                                ? lbSmallPlates.map((plate, index) => (
-                                      <Plate
-                                          plateSize={plate.size}
-                                          plateColor={plate.color}
-                                          weightNum={plate.weight}
-                                          onPress={() => addWeight(plate)}
-                                          reset={reset}
-                                          setReset={setReset}
-                                          key={index}
-                                          type={plate.type}
-                                          unit={"lb"}
-                                      />
-                                  ))
-                                : kgSmallPlates.map((plate, index) => (
-                                      <Plate
-                                          plateSize={plate.size}
-                                          plateColor={plate.color}
-                                          weightNum={plate.weight}
-                                          onPress={() => addWeight(plate)}
-                                          reset={reset}
-                                          setReset={setReset}
-                                          key={index}
-                                          type={plate.type}
-                                          unit={"kg"}
-                                      />
-                                  ))}
+                                ? weightData.plates.lbSmallPlates.map(
+                                      (plate, index) => (
+                                          <Plate
+                                              plateSize={plate.size}
+                                              plateColor={plate.color}
+                                              weightNum={plate.weight}
+                                              onPress={() => addWeight(plate)}
+                                              reset={reset}
+                                              setReset={setReset}
+                                              key={index}
+                                              type={plate.type}
+                                              unit={"lb"}
+                                          />
+                                      )
+                                  )
+                                : weightData.plates.kgSmallPlates.map(
+                                      (plate, index) => (
+                                          <Plate
+                                              plateSize={plate.size}
+                                              plateColor={plate.color}
+                                              weightNum={plate.weight}
+                                              onPress={() => addWeight(plate)}
+                                              reset={reset}
+                                              setReset={setReset}
+                                              key={index}
+                                              type={plate.type}
+                                              unit={"kg"}
+                                          />
+                                      )
+                                  )}
                         </div>
                     </Container>
                 </section>
