@@ -11,6 +11,11 @@ export const weightData = {
                 color: "black",
             },
             {
+                weight: 2.5,
+                size: "small",
+                color: "black",
+            },
+            {
                 weight: 1,
                 size: "small",
                 color: "black",
