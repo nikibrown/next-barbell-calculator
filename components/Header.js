@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { designTokens } from "./designTokens"
 import Container from "./Container"
 import ResetButton from "./ResetButton"
+import UndoButton from "./UndoButton"
 
 const HeaderWrapper = styled.header`
     background-color: ${designTokens.colors.black};
@@ -24,7 +25,7 @@ const NavbarWrapper = styled.nav`
     text-align: center;
 `
 
-export default function Header({ resetEverything }) {
+export default function Header({ resetEverything, undoPlate }) {
     return (
         <HeaderWrapper>
             <Container>
@@ -34,6 +35,10 @@ export default function Header({ resetEverything }) {
                     <ResetButton
                         resetEverything={() => resetEverything()}
                         aria-label="Reset Barbell"
+                    />
+                    <UndoButton
+                        undoClick={() => undoPlate()}
+                        aria-label="Undo plate button"
                     />
                 </NavbarWrapper>
             </Container>
