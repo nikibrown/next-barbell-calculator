@@ -29,6 +29,10 @@ export default function Calculator() {
     // reset button
     const [reset, setReset] = useState(false)
 
+    const [lastSelectedPlate, setLastSelectedPlate] = useState(null)
+
+    const [undo, setUndo] = useState(false)
+
     // functions
     const addWeight = (plate) => {
         setWeight(weight + plate.weight * 2)
@@ -50,6 +54,26 @@ export default function Calculator() {
             },
             ...current,
         ])
+        setLastSelectedPlate(plate)
+    }
+
+    const undoPlate = () => {
+        setUndo(true)
+        const newLeftPlates = [...platesOnBarbellLeft]
+        const newRightPlates = [...platesOnBarbellRight]
+        const leftWeight = newLeftPlates.shift()
+        const rightWeight = newRightPlates.pop()
+
+        setPlatesOnBarbellLeft(newLeftPlates)
+        setPlatesOnBarbellRight(newRightPlates)
+
+        if (
+            platesOnBarbellLeft.length !== 0 &&
+            platesOnBarbellRight.length !== 0
+        ) {
+            setWeight(weight - leftWeight.weightNum - rightWeight.weightNum)
+            setLastSelectedPlate(leftWeight)
+        }
     }
 
     const addBarbellWeight = (barbellWeight) => {
@@ -72,7 +96,7 @@ export default function Calculator() {
 
     return (
         <div className="app-container">
-            <Header resetEverything={resetEverything} />
+            <Header resetEverything={resetEverything} undoPlate={undoPlate} />
 
             <main>
                 <section className="total-weight-section text-center">
@@ -197,6 +221,9 @@ export default function Calculator() {
                                               key={index}
                                               type={plate.size}
                                               unit={"lb"}
+                                              undo={undo}
+                                              setUndo={setUndo}
+                                              lastSelectedPlate={lastSelectedPlate}
                                           />
                                       )
                                   )
@@ -212,6 +239,9 @@ export default function Calculator() {
                                               key={index}
                                               type={plate.type}
                                               unit={"kg"}
+                                              undo={undo}
+                                              setUndo={setUndo}
+                                              lastSelectedPlate={lastSelectedPlate}
                                           />
                                       )
                                   )}
@@ -231,6 +261,9 @@ export default function Calculator() {
                                               key={index}
                                               type={plate.type}
                                               unit={"lb"}
+                                              undo={undo}
+                                              setUndo={setUndo}
+                                              lastSelectedPlate={lastSelectedPlate}
                                           />
                                       )
                                   )
@@ -246,6 +279,9 @@ export default function Calculator() {
                                               key={index}
                                               type={plate.type}
                                               unit={"kg"}
+                                              undo={undo}
+                                              setUndo={setUndo}
+                                              lastSelectedPlate={lastSelectedPlate}
                                           />
                                       )
                                   )}
