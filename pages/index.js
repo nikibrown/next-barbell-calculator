@@ -7,6 +7,7 @@ import PlateOnBarbell from "../components/PlateOnBarbell"
 import Container from "../components/Container"
 import { weightData } from "../data/weightData.js"
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Calculator() {
     // State
@@ -256,6 +257,7 @@ export default function Calculator() {
             </main>
             <Footer />
             <Analytics />
+            <SpeedInsights />
         </div>
     )
 }
