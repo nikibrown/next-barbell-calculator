@@ -71,15 +71,19 @@ const PlateBtn = styled.button`
     border: none;
     border-radius: 50%;
     display: inline-block;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 0;
-    min-height: 45px;
-    min-width: 45px;
+    min-height: 50px;
+    min-width: 50px;
     transition: background-color 0.15s ease-in-out;
 
     &:hover {
         background-color: ${({ plateColor }) =>
             handlePlateColorHover(plateColor)};
+    }
+
+    @media screen and (min-width: 900px) {
+        font-size: 12px;
     }
 `
 
