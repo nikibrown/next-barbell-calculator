@@ -9,9 +9,8 @@
         "chromatic": "npx chromatic --project-token=chpt_0b981eff7c2c305"
     },
     "dependencies": {
+        "@next/third-parties": "^14.2.3",
         "@uidotdev/usehooks": "^2.0.1",
-        "@vercel/analytics": "^1.2.2",
-        "@vercel/speed-insights": "^1.0.10",
         "eslint-config-next": "^14.2.3",
         "next": "^14.2.3",
         "react": "^18.3.1",

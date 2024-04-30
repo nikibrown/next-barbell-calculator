@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
                 <meta name="keywords" content="Barbell Calculator" />
                 <meta
                     name="description"
-                    content="A little calculator that helps you add up the weight on your barbell"
+                    content="A free calculator that helps you add up the weight on your barbell"
                 />
                 <meta name="language" content="en-us" />
                 <meta name="robots" content="index,follow" />
