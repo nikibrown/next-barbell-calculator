@@ -6,8 +6,7 @@ import BarbellButton from "../components/BarbellButton"
 import PlateOnBarbell from "../components/PlateOnBarbell"
 import Container from "../components/Container"
 import { weightData } from "../data/weightData.js"
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 export default function Calculator() {
     // State
@@ -256,8 +255,7 @@ export default function Calculator() {
                 </section>
             </main>
             <Footer />
-            <Analytics />
-            <SpeedInsights />
+            <GoogleAnalytics gaId="G-PKWXFSGSLF" />
         </div>
     )
 }
