@@ -123,6 +123,9 @@ export default function LargePlate({
     weightNum,
     plateSize,
     unit,
+    undo,
+    setUndo,
+    lastSelectedPlate
 }) {
     const [plateCount, setPlateCount] = useState(0)
 
@@ -137,8 +140,13 @@ export default function LargePlate({
         if (reset) {
             setPlateCount(0)
             setReset(false)
+        } else if (undo) {
+            if (lastSelectedPlate?.weightNum === weightNum) {
+                setPlateCount(plateCount - 2)
+            }
+            setUndo(false)
         }
-    }, [reset])
+    }, [reset, undo])
 
     return (
         <PlateWrapper onClick={handleUpdatePlatecount}>
