@@ -75,9 +75,8 @@ export default function ReverseCalculator() {
                 }
 
                 // add weights to barbell
-
                 if (plate.plateCount) {
-                    // addWeight plateCount number of times
+                    // addWeight plateCount / 2 number of times (each side)
                     for (let i = 0; i < plate.plateCount / 2; i++) {
                         addWeight(plate)
                     }
