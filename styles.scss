@@ -81,18 +81,26 @@ section,
 
 input[type="number"] {
     padding: 10px 6px;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
     text-align: center;
+    border-radius: 6px;
+    border: 2px solid #777;
+    transition: all 0.15s ease-in-out;
+
+    &:focus {
+        outline: none;
+        border: 2px solid #0d6efd;
+    }
 }
 
 input[type="submit"] {
     color: #fff;
     background-color: #0d6efd;
     display: block;
-    margin: 10px 0;
+    margin: 0;
     text-align: center;
     text-decoration: none;
     padding: 10px 6px;

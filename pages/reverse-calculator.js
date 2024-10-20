@@ -16,6 +16,9 @@ export default function ReverseCalculator() {
     // set totalWeight from user input?
     const [totalWeight, setTotalWeight] = useState("")
 
+    // after first plate calculation reset on second button click
+    const [calculateBtnClicked, setCalculateBtnClicked] = useState(false)
+
     // store clicked plates in a state array
     const [platesOnBarbellRight, setPlatesOnBarbellRight] = useState([])
     const [platesOnBarbellLeft, setPlatesOnBarbellLeft] = useState([])
@@ -29,20 +32,23 @@ export default function ReverseCalculator() {
     // reset button
     const [reset, setReset] = useState(false)
 
-    // functions
-    // reset the weight and plates on the barbell when a user taps into the number input
-    const handleInputFocus = (e) => {
-        setWeight(0)
-        setTotalWeight("")
-        setPlatesOnBarbellRight([])
-        setPlatesOnBarbellLeft([])
-    }
+    const [displayWeight, setDisplayWeight] = useState("")
 
+    // functions
     const handleWeightInputChange = (e) => {
         setTotalWeight(e.target.value) // updates state with current value of input
     }
 
     const reverseCalculateBarbellWeights = (totalWeight) => {
+        if (calculateBtnClicked) {
+            setWeight(0)
+            // setTotalWeight("")
+            setPlatesOnBarbellRight([])
+            setPlatesOnBarbellLeft([])
+        }
+
+        setDisplayWeight(totalWeight)
+
         // subtract barbell weight
         totalWeight = totalWeight - barbellWeight
 
@@ -94,6 +100,9 @@ export default function ReverseCalculator() {
             top: 0,
             behavior: "smooth", // This makes the scroll smooth
         })
+
+        // setCalculateBtnClicked after this runs for the first time. Then we clear the barbell before we calculate additional times
+        setCalculateBtnClicked(true)
     }
 
     const addWeightToBarbell = (plate) => {
@@ -128,6 +137,7 @@ export default function ReverseCalculator() {
         setReset(true)
         setWeight(0)
         setTotalWeight("")
+        setDisplayWeight("")
         setBarbell(false)
         setPlatesOnBarbellRight([])
         setPlatesOnBarbellLeft([])
@@ -141,13 +151,14 @@ export default function ReverseCalculator() {
                 <section className="total-weight-section text-center">
                     <Container>
                         <h2>
-                            {totalWeight ? (
+                            {displayWeight ? (
                                 <>
-                                    {totalWeight}
-                                    <small>lb</small>
+                                    {displayWeight}
+                                    <small> lb</small>
                                 </>
-                            ) : null}
-                            {"\u00A0"}
+                            ) : (
+                                <>&nbsp;</>
+                            )}
                         </h2>
                         <section className="plates-on-barbell-section">
                             <div className="barbell-container">
@@ -207,7 +218,6 @@ export default function ReverseCalculator() {
                                     <div>
                                         <input
                                             type="number"
-                                            onFocus={handleInputFocus}
                                             onChange={handleWeightInputChange}
                                             value={totalWeight}
                                         />
@@ -216,7 +226,7 @@ export default function ReverseCalculator() {
                                     <input
                                         className="btn btn-primary"
                                         type="submit"
-                                        value="Calculate Plates 💪 "
+                                        value="Calculate Plates 💪"
                                         onClick={() => {
                                             reverseCalculateBarbellWeights(
                                                 totalWeight
