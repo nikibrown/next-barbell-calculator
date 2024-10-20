@@ -88,6 +88,12 @@ export default function ReverseCalculator() {
                 }
             })
         }
+
+        // ios centers the page when you tap on an input so scroll back up to the top of the page
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth", // This makes the scroll smooth
+        })
     }
 
     const addWeightToBarbell = (plate) => {
