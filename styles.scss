@@ -79,6 +79,44 @@ section,
     text-align: center;
 }
 
+input[type="number"] {
+    padding: 10px 6px;
+    margin: 0 0 20px 0;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+input[type="submit"] {
+    color: #fff;
+    background-color: #0d6efd;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 6px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    width: 100%;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+
+    &:hover {
+        background-color: darken(#0d6efd, 10%);
+        cursor: pointer;
+    }
+
+    &:disabled {
+        background-color: #6c757d;
+        opacity: 0.7;
+        cursor: not-allowed;
+        &:hovered {
+            cursor: not-allowed;
+        }
+    }
+}
+
 .barbell-container {
     margin: 20px 0;
     height: 70px;
