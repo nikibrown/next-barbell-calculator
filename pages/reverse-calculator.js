@@ -193,8 +193,16 @@ export default function ReverseCalculator() {
                     <Container>
                         <div className="flex-container">
                             <div className="column">
+                                <div className="weight-input">
+                                    <h3>Enter Weight</h3>
+                                    <input
+                                        type="number"
+                                        onChange={handleWeightInputChange}
+                                        value={totalWeight}
+                                    />
+                                </div>
                                 <div className="barbell-selection">
-                                    <h2>Select Barbell</h2>
+                                    <h3>Select Barbell</h3>
                                     {weightData.barbells.lbBarbells.map(
                                         (barbellWeight, index) => (
                                             <BarbellButton
@@ -212,16 +220,6 @@ export default function ReverseCalculator() {
                                             />
                                         )
                                     )}
-                                </div>
-                                <div className="weight-input">
-                                    <h2>Enter Weight</h2>
-                                    <div>
-                                        <input
-                                            type="number"
-                                            onChange={handleWeightInputChange}
-                                            value={totalWeight}
-                                        />
-                                    </div>
 
                                     <input
                                         className="btn btn-primary"

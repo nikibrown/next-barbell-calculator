@@ -72,11 +72,14 @@ label {
     background-color: #ddd;
 }
 
-section,
-.weight-input,
-.barbell-selection {
+section {
     padding: 20px 0;
     text-align: center;
+}
+
+.weight-input,
+.barbell-selection {
+    padding: 20px 0 0 0;
 }
 
 input[type="number"] {
@@ -100,7 +103,7 @@ input[type="submit"] {
     color: #fff;
     background-color: #0d6efd;
     display: block;
-    margin: 0;
+    margin: 20px 0 0 0;
     text-align: center;
     text-decoration: none;
     padding: 10px 6px;
