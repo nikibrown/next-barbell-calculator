@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Header from "../components/ReverseHeader"
+import Header from "../components/Header"
 import Footer from "../components/Footer"
 import BarbellButton from "../components/BarbellButton"
 import PlateOnBarbell from "../components/PlateOnBarbell"
@@ -136,19 +136,10 @@ export default function ReverseCalculator() {
             <main>
                 <section className="total-weight-section text-center">
                     <Container>
-                        <input
-                            type="number"
-                            placeholder="225"
-                            onChange={handleWeightInputChange}
-                        />{" "}
-                        <small>{isPounds ? "lb" : "kg"}</small>{" "}
-                        <input
-                            type="submit"
-                            value="Calculate Plates 💪 "
-                            onClick={() => {
-                                reverseCalculateBarbellWeights(totalWeight)
-                            }}
-                        />
+                        <h2>
+                            {/* {weight}
+                            <small>{isPounds ? "lb" : "kg"}</small> */}
+                        </h2>
                         <section className="plates-on-barbell-section">
                             <div className="barbell-container">
                                 <div className="plates-on-barbell left-plates">
@@ -181,31 +172,8 @@ export default function ReverseCalculator() {
                 <section className="barbells-section">
                     <Container>
                         <div className="flex-container">
-                            {/* <div className="column">
-                                <h2>Units</h2>
-                                <input
-                                    type="radio"
-                                    value="lb"
-                                    id="lb"
-                                    name="unit"
-                                    defaultChecked
-                                    onClick={() => switchUnits(true)}
-                                />
-                                <label htmlFor="lb">LB</label>
-
-                                <input
-                                    type="radio"
-                                    value="kg"
-                                    id="kg"
-                                    name="unit"
-                                    onClick={() => switchUnits(false)}
-                                />
-                                <label htmlFor="kg">KG</label>
-                            </div> */}
-
                             <div className="column">
                                 <h2>Barbells</h2>
-
                                 {isPounds
                                     ? weightData.barbells.lbBarbells.map(
                                           (barbellWeight, index) => (
@@ -241,6 +209,22 @@ export default function ReverseCalculator() {
                                               />
                                           )
                                       )}
+                                <h2>Weight</h2>
+                                <input
+                                    type="number"
+                                    placeholder="225"
+                                    onChange={handleWeightInputChange}
+                                />{" "}
+                                <small>{isPounds ? "lb" : "kg"}</small>{" "}
+                                <input
+                                    type="submit"
+                                    value="Calculate Plates 💪 "
+                                    onClick={() => {
+                                        reverseCalculateBarbellWeights(
+                                            totalWeight
+                                        )
+                                    }}
+                                />
                             </div>
                         </div>
                     </Container>
