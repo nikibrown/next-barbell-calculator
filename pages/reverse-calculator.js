@@ -20,14 +20,14 @@ export default function ReverseCalculator() {
     const [totalWeight, setTotalWeight] = useState(0)
 
     // store clicked plates in a state array
-
-    // make this an array of objects with the plate.weight and plate.color?
     const [platesOnBarbellRight, setPlatesOnBarbellRight] = useState([])
-
     const [platesOnBarbellLeft, setPlatesOnBarbellLeft] = useState([])
 
     // state of barbells - disable after barbell is selected - false by default
     const [barbell, setBarbell] = useState(false)
+
+    // set barbellWeight for reverse calculator
+    const [barbellWeight, setBarbellWeight] = useState(0)
 
     // reset button
     const [reset, setReset] = useState(false)
@@ -39,8 +39,9 @@ export default function ReverseCalculator() {
     }
 
     const reverseCalculateBarbellWeights = (totalWeight) => {
+        console.log("barbell weight: " + barbellWeight)
         // subtract barbell weight
-        totalWeight = totalWeight - 45
+        totalWeight = totalWeight - barbellWeight
 
         let plates = [
             // { weight: 55, plateCount: 0 }, // who actually has 55# plates????
@@ -112,6 +113,7 @@ export default function ReverseCalculator() {
     const addBarbellWeight = (barbellWeight) => {
         setWeight(weight + barbellWeight)
         setBarbell(true)
+        setBarbellWeight(barbellWeight)
     }
 
     const resetEverything = () => {
@@ -122,10 +124,10 @@ export default function ReverseCalculator() {
         setPlatesOnBarbellLeft([])
     }
 
-    const switchUnits = (boolean) => {
-        resetEverything()
-        setIsPounds(boolean)
-    }
+    // const switchUnits = (boolean) => {
+    //     resetEverything()
+    //     setIsPounds(boolean)
+    // }
 
     return (
         <div className="app-container">
@@ -179,7 +181,7 @@ export default function ReverseCalculator() {
                 <section className="barbells-section">
                     <Container>
                         <div className="flex-container">
-                            <div className="column">
+                            {/* <div className="column">
                                 <h2>Units</h2>
                                 <input
                                     type="radio"
@@ -199,7 +201,7 @@ export default function ReverseCalculator() {
                                     onClick={() => switchUnits(false)}
                                 />
                                 <label htmlFor="kg">KG</label>
-                            </div>
+                            </div> */}
 
                             <div className="column">
                                 <h2>Barbells</h2>
