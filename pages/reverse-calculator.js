@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import Header from "../components/ReverseHeader"
 import Footer from "../components/Footer"
-import Plate from "../components/Plate"
 import BarbellButton from "../components/BarbellButton"
 import PlateOnBarbell from "../components/PlateOnBarbell"
 import Container from "../components/Container"
@@ -35,7 +34,7 @@ export default function ReverseCalculator() {
 
     // functions
 
-    const handleInputChange = (e) => {
+    const handleWeightInputChange = (e) => {
         setTotalWeight(e.target.value) // updates state with current value of input
     }
 
@@ -45,20 +44,20 @@ export default function ReverseCalculator() {
 
         let plates = [
             // { weight: 55, plateCount: 0 }, // who actually has 55# plates????
-            { weight: 45, plateCount: 0 },
-            { weight: 35, plateCount: 0 },
-            { weight: 25, plateCount: 0 },
-            { weight: 15, plateCount: 0 },
-            { weight: 10, plateCount: 0 },
-            { weight: 5, plateCount: 0 },
-            { weight: 2.5, plateCount: 0 },
-            { weight: 1, plateCount: 0 },
-            { weight: 0.75, plateCount: 0 },
-            { weight: 0.5, plateCount: 0 },
-            { weight: 0.25, plateCount: 0 },
+            { weight: 45, plateCount: 0, size: "large", color: "blue" },
+            { weight: 35, plateCount: 0, size: "large", color: "yellow" },
+            { weight: 25, plateCount: 0, size: "large", color: "green" },
+            { weight: 15, plateCount: 0, size: "large", color: "black" },
+            { weight: 10, plateCount: 0, size: "large", color: "black" },
+            { weight: 5, plateCount: 0, size: "small", color: "black" },
+            { weight: 2.5, plateCount: 0, size: "small", color: "black" },
+            { weight: 1, plateCount: 0, size: "small", color: "black" },
+            { weight: 0.75, plateCount: 0, size: "small", color: "black" },
+            { weight: 0.5, plateCount: 0, size: "small", color: "black" },
+            { weight: 0.25, plateCount: 0, size: "small", color: "black" },
         ]
 
-        // while loop - iterate through until we run out fo weight
+        // while loop - iterate through until we run out of weight
         while (totalWeight > 0) {
             plates.forEach((plate) => {
                 if (totalWeight / plate.weight >= 2) {
@@ -73,6 +72,15 @@ export default function ReverseCalculator() {
 
                     // subtract plateCount from totalWeight
                     totalWeight = totalWeight - plate.plateCount * plate.weight
+                }
+
+                // add weights to barbell
+
+                if (plate.plateCount) {
+                    // addWeight plateCount number of times
+                    for (let i = 0; i < plate.plateCount / 2; i++) {
+                        addWeight(plate)
+                    }
                 }
             })
         }
@@ -127,14 +135,10 @@ export default function ReverseCalculator() {
             <main>
                 <section className="total-weight-section text-center">
                     <Container>
-                        {/* <h2>
-                            {weight}
-                            <small>{isPounds ? "lb" : "kg"}</small>
-                        </h2> */}
                         <input
                             type="number"
                             placeholder="225"
-                            onChange={handleInputChange}
+                            onChange={handleWeightInputChange}
                         />{" "}
                         <small>{isPounds ? "lb" : "kg"}</small>{" "}
                         <input
