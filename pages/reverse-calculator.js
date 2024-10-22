@@ -16,6 +16,9 @@ export default function ReverseCalculator() {
     // set totalWeight from user input?
     const [totalWeight, setTotalWeight] = useState("")
 
+    // weight at the top of the app
+    const [displayWeight, setDisplayWeight] = useState("0")
+
     // after first plate calculation reset on second button click
     const [calculateBtnClicked, setCalculateBtnClicked] = useState(false)
 
@@ -23,7 +26,7 @@ export default function ReverseCalculator() {
     const [platesOnBarbellRight, setPlatesOnBarbellRight] = useState([])
     const [platesOnBarbellLeft, setPlatesOnBarbellLeft] = useState([])
 
-    // state of barbells - disable after barbell is selected - false by default
+    // TODO: Rename. state of barbells - disable after barbell is selected - false by default
     const [barbell, setBarbell] = useState(false)
 
     // set barbellWeight for reverse calculator
@@ -32,7 +35,8 @@ export default function ReverseCalculator() {
     // reset button
     const [reset, setReset] = useState(false)
 
-    const [displayWeight, setDisplayWeight] = useState("")
+    // set kg or lb
+    const [isPounds, setIsPounds] = useState(true)
 
     // functions
     const handleWeightInputChange = (e) => {
@@ -53,24 +57,45 @@ export default function ReverseCalculator() {
         totalWeight = totalWeight - barbellWeight
 
         // TODO: use data/weightData.js
-        let plates = [
+        let plates = {
             // { weight: 55, plateCount: 0 }, // who actually has 55# plates????
-            { weight: 45, plateCount: 0, size: "large", color: "blue" },
-            { weight: 35, plateCount: 0, size: "large", color: "yellow" },
-            { weight: 25, plateCount: 0, size: "large", color: "green" },
-            { weight: 15, plateCount: 0, size: "large", color: "black" },
-            { weight: 10, plateCount: 0, size: "large", color: "black" },
-            { weight: 5, plateCount: 0, size: "small", color: "black" },
-            { weight: 2.5, plateCount: 0, size: "small", color: "black" },
-            { weight: 1, plateCount: 0, size: "small", color: "black" },
-            { weight: 0.75, plateCount: 0, size: "small", color: "black" },
-            { weight: 0.5, plateCount: 0, size: "small", color: "black" },
-            { weight: 0.25, plateCount: 0, size: "small", color: "black" },
-        ]
+            pounds: [
+                { weight: 45, plateCount: 0, size: "large", color: "blue" },
+                { weight: 35, plateCount: 0, size: "large", color: "yellow" },
+                { weight: 25, plateCount: 0, size: "large", color: "green" },
+                { weight: 15, plateCount: 0, size: "large", color: "black" },
+                { weight: 10, plateCount: 0, size: "large", color: "black" },
+                { weight: 5, plateCount: 0, size: "small", color: "black" },
+                { weight: 2.5, plateCount: 0, size: "small", color: "black" },
+                { weight: 1, plateCount: 0, size: "small", color: "black" },
+                { weight: 0.75, plateCount: 0, size: "small", color: "black" },
+                { weight: 0.5, plateCount: 0, size: "small", color: "black" },
+                { weight: 0.25, plateCount: 0, size: "small", color: "black" },
+            ],
+            kilos: [
+                { weight: 20, plateCount: 0, size: "large", color: "blue" },
+                { weight: 15, plateCount: 0, size: "large", color: "yellow" },
+                { weight: 10, plateCount: 0, size: "large", color: "green" },
+                { weight: 5, plateCount: 0, size: "small", color: "black" },
+                { weight: 2.5, plateCount: 0, size: "small", color: "black" },
+                { weight: 2, plateCount: 0, size: "small", color: "black" },
+                { weight: 1.5, plateCount: 0, size: "small", color: "black" },
+                { weight: 1, plateCount: 0, size: "small", color: "black" },
+                { weight: 0.5, plateCount: 0, size: "small", color: "black" },
+            ],
+        }
 
         // while loop - iterate through until we run out of weight
         while (totalWeight > 0) {
-            plates.forEach((plate) => {
+            // need if here for pounds / kilos
+
+            let selectedPlates
+
+            isPounds
+                ? (selectedPlates = plates.pounds)
+                : (selectedPlates = plates.kilos)
+
+            selectedPlates.forEach((plate) => {
                 if (totalWeight / plate.weight >= 2) {
                     // set plateCount and round down
                     plate.plateCount = Math.floor(totalWeight / plate.weight)
@@ -143,6 +168,11 @@ export default function ReverseCalculator() {
         setPlatesOnBarbellLeft([])
     }
 
+    const switchUnits = (boolean) => {
+        resetEverything()
+        setIsPounds(boolean)
+    }
+
     return (
         <div className="app-container">
             <Header resetEverything={resetEverything} />
@@ -151,14 +181,9 @@ export default function ReverseCalculator() {
                 <section className="total-weight-section text-center">
                     <Container>
                         <h2>
-                            {displayWeight ? (
-                                <>
-                                    {displayWeight}
-                                    <small> lb</small>
-                                </>
-                            ) : (
-                                <>&nbsp;</>
-                            )}
+                            {displayWeight ? <>{displayWeight}</> : <>&nbsp;</>}
+
+                            <small>{isPounds ? "lb" : "kg"}</small>
                         </h2>
                         <section className="plates-on-barbell-section">
                             <div className="barbell-container">
@@ -191,47 +216,89 @@ export default function ReverseCalculator() {
 
                 <section className="barbells-section">
                     <Container>
-                        <div className="flex-container">
-                            <div className="column">
-                                <div className="weight-input">
-                                    <h3>Enter Weight</h3>
-                                    <input
-                                        type="number"
-                                        onChange={handleWeightInputChange}
-                                        value={totalWeight}
-                                    />
-                                </div>
-                                <div className="barbell-selection">
-                                    <h3>Select Barbell</h3>
-                                    {weightData.barbells.lbBarbells.map(
-                                        (barbellWeight, index) => (
-                                            <BarbellButton
-                                                weightNum={barbellWeight}
-                                                onPress={() => {
-                                                    addBarbellWeight(
-                                                        barbellWeight
-                                                    )
-                                                }}
-                                                disableBarbell={barbell}
-                                                reset={reset}
-                                                setReset={setReset}
-                                                key={index}
-                                                unit={"lb"}
-                                            />
-                                        )
-                                    )}
+                        <div className="grid-container">
+                            <div className="column weight-input">
+                                <h3>Enter Weight</h3>
+                                <input
+                                    type="number"
+                                    onChange={handleWeightInputChange}
+                                    value={totalWeight}
+                                />
+                            </div>
+                            <div className="column weight-units">
+                                <h3>Select Units</h3>
 
-                                    <input
-                                        className="btn btn-primary"
-                                        type="submit"
-                                        value="Calculate Plates 💪"
-                                        onClick={() => {
-                                            reverseCalculateBarbellWeights(
-                                                totalWeight
-                                            )
-                                        }}
-                                    />
-                                </div>
+                                <input
+                                    type="radio"
+                                    value="lb"
+                                    id="lb"
+                                    name="unit"
+                                    defaultChecked
+                                    onClick={() => switchUnits(true)}
+                                />
+                                <label htmlFor="lb">LB</label>
+
+                                <input
+                                    type="radio"
+                                    value="kg"
+                                    id="kg"
+                                    name="unit"
+                                    onClick={() => switchUnits(false)}
+                                />
+                                <label htmlFor="kg">KG</label>
+                            </div>
+
+                            <div className="column barbell">
+                                <h3>Select Barbell</h3>
+
+                                {isPounds
+                                    ? weightData.barbells.lbBarbells.map(
+                                          (barbellWeight, index) => (
+                                              <BarbellButton
+                                                  weightNum={barbellWeight}
+                                                  onPress={() => {
+                                                      addBarbellWeight(
+                                                          barbellWeight
+                                                      )
+                                                  }}
+                                                  disableBarbell={barbell}
+                                                  reset={reset}
+                                                  setReset={setReset}
+                                                  key={index}
+                                                  unit={"lb"}
+                                              />
+                                          )
+                                      )
+                                    : weightData.barbells.kgBarbells.map(
+                                          (barbellWeight, index) => (
+                                              <BarbellButton
+                                                  weightNum={barbellWeight}
+                                                  onPress={() => {
+                                                      addBarbellWeight(
+                                                          barbellWeight
+                                                      )
+                                                  }}
+                                                  disableBarbell={barbell}
+                                                  reset={reset}
+                                                  setReset={setReset}
+                                                  key={index}
+                                                  unit={"kg"}
+                                              />
+                                          )
+                                      )}
+                            </div>
+
+                            <div className="column calculate-button">
+                                <input
+                                    className="btn btn-primary"
+                                    type="submit"
+                                    value="Calculate Plates 💪"
+                                    onClick={() => {
+                                        reverseCalculateBarbellWeights(
+                                            totalWeight
+                                        )
+                                    }}
+                                />
                             </div>
                         </div>
                     </Container>

@@ -58,6 +58,26 @@ label {
     }
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    .column {
+        grid-column: 1 / -1;
+    }
+
+    @media (min-width: 992px) {
+        .column.weight-units {
+            grid-column: 1 / 2;
+        }
+
+        .column.barbell {
+            grid-column: 2 / 3;
+        }
+    }
+}
+
 .column {
     input {
         margin-top: 13px;
@@ -77,10 +97,10 @@ section {
     text-align: center;
 }
 
-.weight-input,
-.barbell-selection {
-    padding: 20px 0 0 0;
-}
+// .weight-input,
+// .barbell-selection {
+//     padding: 20px 0 0 0;
+// }
 
 input[type="number"] {
     padding: 10px 6px;
@@ -96,6 +116,12 @@ input[type="number"] {
     &:focus {
         outline: none;
         border: 2px solid #0d6efd;
+    }
+
+    @media (min-width: 992px) {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -125,6 +151,12 @@ input[type="submit"] {
         &:hovered {
             cursor: not-allowed;
         }
+    }
+
+    @media (min-width: 992px) {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
