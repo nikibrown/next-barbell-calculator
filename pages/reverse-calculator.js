@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Header from "../components/Header"
+import HeaderNoBanner from "../components/HeaderNoBanner"
 import Footer from "../components/Footer"
 import BarbellButton from "../components/BarbellButton"
 import PlateOnBarbell from "../components/PlateOnBarbell"
@@ -175,7 +175,7 @@ export default function ReverseCalculator() {
 
     return (
         <div className="app-container">
-            <Header resetEverything={resetEverything} />
+            <HeaderNoBanner resetEverything={resetEverything} />
 
             <main>
                 <section className="total-weight-section text-center">
@@ -228,24 +228,30 @@ export default function ReverseCalculator() {
                             <div className="column weight-units">
                                 <h3>Select Units</h3>
 
-                                <input
-                                    type="radio"
-                                    value="lb"
-                                    id="lb"
-                                    name="unit"
-                                    defaultChecked
-                                    onClick={() => switchUnits(true)}
-                                />
-                                <label htmlFor="lb">LB</label>
+                                <div className="weight-units-container">
+                                    <div className="weight-unit">
+                                        <input
+                                            type="radio"
+                                            value="lb"
+                                            id="lb"
+                                            name="unit"
+                                            defaultChecked
+                                            onClick={() => switchUnits(true)}
+                                        />
+                                        <label htmlFor="lb">LB</label>
+                                    </div>
 
-                                <input
-                                    type="radio"
-                                    value="kg"
-                                    id="kg"
-                                    name="unit"
-                                    onClick={() => switchUnits(false)}
-                                />
-                                <label htmlFor="kg">KG</label>
+                                    <div className="weight-unit">
+                                        <input
+                                            type="radio"
+                                            value="kg"
+                                            id="kg"
+                                            name="unit"
+                                            onClick={() => switchUnits(false)}
+                                        />
+                                        <label htmlFor="kg">KG</label>
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="column barbell">

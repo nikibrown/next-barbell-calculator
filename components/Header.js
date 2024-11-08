@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { designTokens } from "./designTokens"
 import Container from "./Container"
 import ResetButton from "./ResetButton"
+import Link from "next/link"
 
 const BannerWrapper = styled.section`
     background-color: ${designTokens.colors.blue};
@@ -70,9 +71,9 @@ export default function Header({ resetEverything }) {
         <>
             <BannerWrapper>
                 <p>
-                    <a href="/reverse-calculator">
+                    <Link href="/reverse-calculator">
                         <span>New</span> Reverse Calculator &rarr;
-                    </a>
+                    </Link>
                 </p>
             </BannerWrapper>
             <HeaderWrapper>
