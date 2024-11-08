@@ -3,11 +3,53 @@ import styled from "styled-components"
 import { designTokens } from "./designTokens"
 import Container from "./Container"
 import ResetButton from "./ResetButton"
+import Link from "next/link"
+
+const BannerWrapper = styled.section`
+    background-color: ${designTokens.colors.blue};
+    color: ${designTokens.colors.white};
+    padding: 5px 0px;
+
+    a {
+        color: ${designTokens.colors.white};
+        text-decoration: none;
+    }
+
+    span {
+        background-color: ${designTokens.colors.red};
+        padding: 5px;
+        display: inline-block;
+        margin-right: 5px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    @keyframes slideDown {
+        from {
+            transform: translateY(-100px);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    p {
+        color: ${designTokens.colors.white};
+        font-size: 0.75rem;
+        margin: 0;
+        transform: translateY(-100px);
+        animation-name: slideDown;
+        animation-duration: 0.3s;
+        animation-delay: 0.5s;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
+    }
+`
 
 const HeaderWrapper = styled.header`
     background-color: ${designTokens.colors.black};
     color: ${designTokens.colors.white};
-    padding: 10px 0px;
+    padding: 15px 0px;
 
     h1 {
         font-size: 1.5rem;
@@ -26,17 +68,26 @@ const NavbarWrapper = styled.nav`
 
 export default function Header({ resetEverything }) {
     return (
-        <HeaderWrapper>
-            <Container>
-                <NavbarWrapper>
-                    <h1>Barbell Calculator</h1>
+        <>
+            <BannerWrapper>
+                <p>
+                    <Link href="/reverse-calculator">
+                        <span>New</span> Reverse Calculator &rarr;
+                    </Link>
+                </p>
+            </BannerWrapper>
+            <HeaderWrapper>
+                <Container>
+                    <NavbarWrapper>
+                        <h1>Barbell Calculator</h1>
 
-                    <ResetButton
-                        resetEverything={() => resetEverything()}
-                        aria-label="Reset Barbell"
-                    />
-                </NavbarWrapper>
-            </Container>
-        </HeaderWrapper>
+                        <ResetButton
+                            resetEverything={() => resetEverything()}
+                            aria-label="Reset Barbell"
+                        />
+                    </NavbarWrapper>
+                </Container>
+            </HeaderWrapper>
+        </>
     )
 }

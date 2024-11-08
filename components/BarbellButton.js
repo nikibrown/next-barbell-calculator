@@ -25,7 +25,8 @@ const BarbellButton = styled.button`
     }
 
     &:disabled {
-        background-color: #6c757d;
+        background-color: #839896;
+        cursor: not-allowed;
         opacity: 0.7;
         &:hovered {
             cursor: not-allowed;
