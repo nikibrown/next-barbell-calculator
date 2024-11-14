@@ -5,7 +5,7 @@ import { designTokens } from "./designTokens"
 
 const PlateWrapper = styled.span`
     display: inline-block;
-    margin: 0.2rem;
+    margin: 0.1rem;
     position: relative;
 
     @media screen and (min-width: 900px) {
