@@ -223,6 +223,7 @@ export default function ReverseCalculator() {
                                     type="number"
                                     onChange={handleWeightInputChange}
                                     value={totalWeight}
+                                    inputMode="decimal"
                                 />
                             </div>
                             <div className="column weight-units">
