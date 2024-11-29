@@ -58,6 +58,36 @@ export default function Calculator() {
         setBarbell(true)
     }
 
+    // Add undo btn functionality:
+    // Clicking the undo button removes the last pair of weights added to the barbell
+
+    const undoLastPlate = () => {
+        // ✅ check if we have plates on the barbell
+        if (platesOnBarbellRight.length) {
+            // ✅ add undo button
+            // ✅ get last plate added - can i get this from platesOnBarbellRight?
+            const lastPlateAdded =
+                platesOnBarbellRight[platesOnBarbellRight.length - 1].weightNum
+
+            console.log(lastPlateAdded)
+
+            // ✅ subtract double the plate weight
+            setWeight(weight - lastPlateAdded * 2)
+
+            // ✅ removes the last weightPlate from the end of the platesOnBarbellRight array
+            setPlatesOnBarbellRight((current) => current.slice(0, -1))
+
+            // ✅ removes the last weightPlate from the beginning of the platesOnBarbellLeft array
+            setPlatesOnBarbellLeft((current) => current.slice(1))
+
+            // update plate count?
+            // in plate.js I have handleUpdatePlatecount function that sets the # of plates. How do I access that from here?
+            // need to know what the weight number is and then update the plateCoutnt of that plate
+        } else {
+            alert("no plates on barbell to remove!")
+        }
+    }
+
     const resetEverything = () => {
         setReset(true)
         setWeight(0)
@@ -73,7 +103,9 @@ export default function Calculator() {
 
     return (
         <div className="app-container">
-            <Header resetEverything={resetEverything} />
+            {/* <Header resetEverything={resetEverything} /> */}
+
+            <Header undoLastPlate={undoLastPlate} />
 
             <main>
                 <section className="total-weight-section text-center">

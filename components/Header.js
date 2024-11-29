@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { designTokens } from "./designTokens"
 import Container from "./Container"
 import ResetButton from "./ResetButton"
+import UndoButton from "./UndoButton"
 import Link from "next/link"
 
 const BannerWrapper = styled.section`
@@ -66,7 +67,7 @@ const NavbarWrapper = styled.nav`
     text-align: center;
 `
 
-export default function Header({ resetEverything }) {
+export default function Header({ undoLastPlate }) {
     return (
         <>
             <BannerWrapper>
@@ -81,10 +82,14 @@ export default function Header({ resetEverything }) {
                     <NavbarWrapper>
                         <h1>Barbell Calculator</h1>
 
-                        <ResetButton
+                        <UndoButton
+                            undoLastPlate={() => undoLastPlate()}
+                            aria-label="Undo Last Plate"
+                        />
+                        {/* <ResetButton
                             resetEverything={() => resetEverything()}
                             aria-label="Reset Barbell"
-                        />
+                        /> */}
                     </NavbarWrapper>
                 </Container>
             </HeaderWrapper>
