@@ -76,6 +76,7 @@ export default function Calculator() {
             const lastPlate =
                 platesOnBarbellRight[platesOnBarbellRight.length - 1]
 
+            // put lastPlate in our state that we pass into Plate.js
             setLastPlateAdded(lastPlate)
 
             // ✅ subtract double the plate weight

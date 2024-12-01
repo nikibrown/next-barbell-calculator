@@ -141,6 +141,7 @@ export default function LargePlate({
             setPlateCount(0)
             setReset(false)
         } else if (undo) {
+            // -2 plate count for the last plate added
             if (lastPlateAdded.weightNum === weightNum) {
                 setPlateCount(plateCount - 2)
             }
