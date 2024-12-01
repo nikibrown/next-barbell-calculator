@@ -90,6 +90,7 @@ export default function Calculator() {
             // ✅ removes the last weightPlate from the beginning of the platesOnBarbellLeft array
             setPlatesOnBarbellLeft((existingPlates) => existingPlates.slice(1))
         } else {
+            // TODO: add non alert error msg
             alert("No plates on barbell to remove!")
         }
     }
