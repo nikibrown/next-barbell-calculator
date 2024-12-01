@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { designTokens } from "./designTokens"
 
 const UndoButtonWrapper = styled.button`
-    background-color: ${designTokens.colors.red};
+    background-color: ${designTokens.colors.gray};
     border: none;
     border-radius: 6px;
     padding: 6px 12px;
@@ -11,7 +11,7 @@ const UndoButtonWrapper = styled.button`
     color: ${designTokens.colors.white};
 
     &:hover {
-        background-color: ${designTokens.colors.redHover};
+        background-color: ${designTokens.colors.grayHover};
     }
 `
 

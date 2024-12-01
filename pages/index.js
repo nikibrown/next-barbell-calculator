@@ -66,9 +66,10 @@ export default function Calculator() {
     // Clicking the undo button removes the last pair of weights added to the barbell
 
     const undoLastPlate = () => {
-        setUndo(true)
         // ✅ check if we have plates on the barbell
         if (platesOnBarbellRight.length) {
+            setUndo(true)
+
             // ✅ add undo button component
 
             // ✅ get last plate added - can i get this from platesOnBarbellRight?
@@ -88,7 +89,7 @@ export default function Calculator() {
             // ✅ removes the last weightPlate from the beginning of the platesOnBarbellLeft array
             setPlatesOnBarbellLeft((existingPlates) => existingPlates.slice(1))
         } else {
-            alert("no plates on barbell to remove!")
+            alert("No plates on barbell to remove!")
         }
     }
 
