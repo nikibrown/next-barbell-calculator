@@ -174,7 +174,7 @@ export default function ReverseCalculator() {
     }
 
     return (
-        <div className="app-container">
+        <div className="app-container reverse-calculator">
             <HeaderNoBanner resetEverything={resetEverything} />
 
             <main>
