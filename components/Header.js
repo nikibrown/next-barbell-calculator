@@ -53,8 +53,9 @@ const HeaderWrapper = styled.header`
     padding: 15px 0px;
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 0;
+        text-align: center;
 
         @media screen and (min-width: 900px) {
             font-size: 2rem;
@@ -64,10 +65,11 @@ const HeaderWrapper = styled.header`
 const NavbarWrapper = styled.nav`
     color: ${designTokens.colors.white};
     display: flex;
-    text-align: center;
+    justify-content: space-between;
+    align-items: center;
 `
 
-export default function Header({ undoLastPlate }) {
+export default function Header({ undoLastPlate, resetEverything }) {
     return (
         <>
             <BannerWrapper>
@@ -80,16 +82,16 @@ export default function Header({ undoLastPlate }) {
             <HeaderWrapper>
                 <Container>
                     <NavbarWrapper>
-                        <h1>Barbell Calculator</h1>
-
                         <UndoButton
                             undoLastPlate={() => undoLastPlate()}
                             aria-label="Undo Last Plate"
                         />
-                        {/* <ResetButton
+                        <h1>Barbell Calculator</h1>
+
+                        <ResetButton
                             resetEverything={() => resetEverything()}
                             aria-label="Reset Barbell"
-                        /> */}
+                        />
                     </NavbarWrapper>
                 </Container>
             </HeaderWrapper>

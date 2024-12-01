@@ -17,8 +17,6 @@ export default function Calculator() {
     // set kg or lb
     const [isPounds, setIsPounds] = useState(true)
 
-    // store clicked plates in a state array
-
     // make this an array of objects with the plate.weight and plate.color?
     const [platesOnBarbellRight, setPlatesOnBarbellRight] = useState([])
 
@@ -30,12 +28,18 @@ export default function Calculator() {
     // reset button
     const [reset, setReset] = useState(false)
 
+    // track last plate added
+    const [lastPlateAdded, setLastPlateAdded] = useState(null)
+
+    // Undo button
+    const [undo, setUndo] = useState(false)
+
     // functions
     const addWeight = (plate) => {
         setWeight(weight + plate.weight * 2)
         // adds the clicked weightPlate to the end of the platesOnBarbell array
-        setPlatesOnBarbellRight((current) => [
-            ...current,
+        setPlatesOnBarbellRight((existingPlates) => [
+            ...existingPlates,
             {
                 weightNum: plate.weight,
                 plateColor: plate.color,
@@ -43,13 +47,13 @@ export default function Calculator() {
             },
         ])
         // adds the clicked weightPlate to the beginning of the platesOnBarbell array
-        setPlatesOnBarbellLeft((current) => [
+        setPlatesOnBarbellLeft((existingPlates) => [
             {
                 weightNum: plate.weight,
                 plateColor: plate.color,
                 plateSize: plate.size,
             },
-            ...current,
+            ...existingPlates,
         ])
     }
 
@@ -62,27 +66,27 @@ export default function Calculator() {
     // Clicking the undo button removes the last pair of weights added to the barbell
 
     const undoLastPlate = () => {
+        setUndo(true)
         // ✅ check if we have plates on the barbell
         if (platesOnBarbellRight.length) {
-            // ✅ add undo button
-            // ✅ get last plate added - can i get this from platesOnBarbellRight?
-            const lastPlateAdded =
-                platesOnBarbellRight[platesOnBarbellRight.length - 1].weightNum
+            // ✅ add undo button component
 
-            console.log(lastPlateAdded)
+            // ✅ get last plate added - can i get this from platesOnBarbellRight?
+            const lastPlate =
+                platesOnBarbellRight[platesOnBarbellRight.length - 1]
+
+            setLastPlateAdded(lastPlate)
 
             // ✅ subtract double the plate weight
-            setWeight(weight - lastPlateAdded * 2)
+            setWeight(weight - lastPlate.weightNum * 2)
 
             // ✅ removes the last weightPlate from the end of the platesOnBarbellRight array
-            setPlatesOnBarbellRight((current) => current.slice(0, -1))
+            setPlatesOnBarbellRight((existingPlates) =>
+                existingPlates.slice(0, -1)
+            )
 
             // ✅ removes the last weightPlate from the beginning of the platesOnBarbellLeft array
-            setPlatesOnBarbellLeft((current) => current.slice(1))
-
-            // update plate count?
-            // in plate.js I have handleUpdatePlatecount function that sets the # of plates. How do I access that from here?
-            // need to know what the weight number is and then update the plateCoutnt of that plate
+            setPlatesOnBarbellLeft((existingPlates) => existingPlates.slice(1))
         } else {
             alert("no plates on barbell to remove!")
         }
@@ -103,9 +107,10 @@ export default function Calculator() {
 
     return (
         <div className="app-container">
-            {/* <Header resetEverything={resetEverything} /> */}
-
-            <Header undoLastPlate={undoLastPlate} />
+            <Header
+                undoLastPlate={undoLastPlate}
+                resetEverything={resetEverything}
+            />
 
             <main>
                 <section className="total-weight-section text-center">
@@ -116,7 +121,13 @@ export default function Calculator() {
                         </h2>
 
                         <section className="plates-on-barbell-section">
-                            <div className="barbell-container">
+                            <div
+                                className={
+                                    barbell
+                                        ? "barbell-container barbell-selected"
+                                        : "barbell-container"
+                                }
+                            >
                                 <div className="plates-on-barbell left-plates">
                                     {platesOnBarbellLeft.map((plate, index) => (
                                         <PlateOnBarbell
@@ -227,6 +238,9 @@ export default function Calculator() {
                                               onPress={() => addWeight(plate)}
                                               reset={reset}
                                               setReset={setReset}
+                                              undo={undo}
+                                              setUndo={setUndo}
+                                              lastPlateAdded={lastPlateAdded}
                                               key={index}
                                               type={plate.size}
                                               unit={"lb"}
@@ -242,6 +256,9 @@ export default function Calculator() {
                                               onPress={() => addWeight(plate)}
                                               reset={reset}
                                               setReset={setReset}
+                                              undo={undo}
+                                              setUndo={setUndo}
+                                              lastPlateAdded={lastPlateAdded}
                                               key={index}
                                               type={plate.type}
                                               unit={"kg"}
@@ -261,6 +278,9 @@ export default function Calculator() {
                                               onPress={() => addWeight(plate)}
                                               reset={reset}
                                               setReset={setReset}
+                                              undo={undo}
+                                              setUndo={setUndo}
+                                              lastPlateAdded={lastPlateAdded}
                                               key={index}
                                               type={plate.type}
                                               unit={"lb"}
@@ -276,6 +296,9 @@ export default function Calculator() {
                                               onPress={() => addWeight(plate)}
                                               reset={reset}
                                               setReset={setReset}
+                                              undo={undo}
+                                              setUndo={setUndo}
+                                              lastPlateAdded={lastPlateAdded}
                                               key={index}
                                               type={plate.type}
                                               unit={"kg"}

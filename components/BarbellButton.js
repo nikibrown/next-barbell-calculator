@@ -17,7 +17,6 @@ const BarbellButton = styled.button`
     padding: 6px 12px;
     border-radius: 6px;
     border: none;
-
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 
     &:hover {
@@ -33,6 +32,7 @@ const BarbellButton = styled.button`
         }
         &.selected {
             background-color: ${designTokens.colors.black};
+            opacity: 1;
         }
     }
 `
