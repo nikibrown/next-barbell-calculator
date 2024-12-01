@@ -133,8 +133,8 @@ export default function ReverseCalculator() {
     const addWeightToBarbell = (plate) => {
         setWeight(weight + plate.weight * 2)
         // adds the clicked weightPlate to the end of the platesOnBarbell array
-        setPlatesOnBarbellRight((current) => [
-            ...current,
+        setPlatesOnBarbellRight((existingPlates) => [
+            ...existingPlates,
             {
                 weightNum: plate.weight,
                 plateColor: plate.color,
@@ -142,13 +142,13 @@ export default function ReverseCalculator() {
             },
         ])
         // adds the clicked weightPlate to the beginning of the platesOnBarbell array
-        setPlatesOnBarbellLeft((current) => [
+        setPlatesOnBarbellLeft((existingPlates) => [
             {
                 weightNum: plate.weight,
                 plateColor: plate.color,
                 plateSize: plate.size,
             },
-            ...current,
+            ...existingPlates,
         ])
     }
 
@@ -186,7 +186,13 @@ export default function ReverseCalculator() {
                             <small>{isPounds ? "lb" : "kg"}</small>
                         </h2>
                         <section className="plates-on-barbell-section">
-                            <div className="barbell-container">
+                            <div
+                                className={
+                                    barbell
+                                        ? "barbell-container barbell-selected"
+                                        : "barbell-container"
+                                }
+                            >
                                 <div className="plates-on-barbell left-plates">
                                     {platesOnBarbellLeft.map((plate, index) => (
                                         <PlateOnBarbell
@@ -299,7 +305,7 @@ export default function ReverseCalculator() {
                                 <input
                                     className="btn btn-primary"
                                     type="submit"
-                                    value="Calculate Plates 💪"
+                                    value="💪 Calculate Plates"
                                     onClick={() => {
                                         reverseCalculateBarbellWeights(
                                             totalWeight

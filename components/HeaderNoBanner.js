@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
     padding: 15px 0px;
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 0;
 
         @media screen and (min-width: 900px) {
@@ -21,12 +21,14 @@ const HeaderWrapper = styled.header`
 
     a {
         text-decoration: none;
+        color: ${designTokens.colors.white};
     }
 `
 const NavbarWrapper = styled.nav`
     color: ${designTokens.colors.white};
     display: flex;
-    text-align: center;
+    justify-content: space-between;
+    align-items: center;
 `
 
 export default function Header({ resetEverything }) {
@@ -36,7 +38,7 @@ export default function Header({ resetEverything }) {
                 <Container>
                     <NavbarWrapper>
                         <h1>
-                            <Link href="/">⏪</Link> Barbell Calculator
+                            <Link href="/">&larr;</Link> Barbell Calculator
                         </h1>
 
                         <ResetButton

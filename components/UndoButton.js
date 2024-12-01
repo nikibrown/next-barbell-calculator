@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { designTokens } from "./designTokens"
 
-const ResetButtonWrapper = styled.button`
+const UndoButtonWrapper = styled.button`
     background-color: ${designTokens.colors.gray};
     border: none;
     border-radius: 6px;
@@ -14,13 +14,11 @@ const ResetButtonWrapper = styled.button`
         background-color: ${designTokens.colors.grayHover};
     }
 `
-export default function ResetButton({ resetEverything }) {
+
+export default function ResetButton({ undoLastPlate }) {
     return (
-        <ResetButtonWrapper
-            onClick={resetEverything}
-            aria-label="Reset Barbell"
-        >
-            Reset
-        </ResetButtonWrapper>
+        <UndoButtonWrapper onClick={undoLastPlate} aria-label="Undo">
+            Undo
+        </UndoButtonWrapper>
     )
 }

@@ -8,7 +8,7 @@ const BarbellButtonWrapper = styled.span`
 
 const BarbellButton = styled.button`
     color: #fff;
-    background-color: #6c757d;
+    background-color: ${designTokens.colors.gray};
     display: inline-block;
     margin: 4px 8px;
     text-align: center;
@@ -17,11 +17,10 @@ const BarbellButton = styled.button`
     padding: 6px 12px;
     border-radius: 6px;
     border: none;
-
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 
     &:hover {
-        background-color: #5c636a;
+        background-color: ${designTokens.colors.grayHover};
     }
 
     &:disabled {
@@ -33,6 +32,7 @@ const BarbellButton = styled.button`
         }
         &.selected {
             background-color: ${designTokens.colors.black};
+            opacity: 1;
         }
     }
 `

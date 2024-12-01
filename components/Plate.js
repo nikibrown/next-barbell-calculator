@@ -120,6 +120,9 @@ export default function LargePlate({
     plateColor,
     reset,
     setReset,
+    undo,
+    setUndo,
+    lastPlateAdded,
     weightNum,
     plateSize,
     unit,
@@ -137,8 +140,14 @@ export default function LargePlate({
         if (reset) {
             setPlateCount(0)
             setReset(false)
+        } else if (undo) {
+            // -2 plate count for the last plate added
+            if (lastPlateAdded.weightNum === weightNum) {
+                setPlateCount(plateCount - 2)
+            }
+            setUndo(false)
         }
-    }, [reset])
+    }, [reset, undo])
 
     return (
         <PlateWrapper onClick={handleUpdatePlatecount}>
