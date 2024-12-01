@@ -6,25 +6,15 @@ body {
 }
 
 .app-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100dvh;
     margin: 0;
     padding: 0;
-}
 
-main {
-    flex: 1;
-    overflow: auto;
-}
-
-header {
-    flex: 0;
-}
-
-footer {
-    flex: 0;
-    margin-top: auto;
+    &.reverse-calculator {
+        grid-template-rows: auto 1fr auto;
+    }
 }
 
 h1 {
@@ -67,6 +57,12 @@ label {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+}
+
+.column {
+    h3 {
+        margin: 0 0 10px 0;
+    }
 }
 
 .column {
@@ -121,7 +117,7 @@ section {
 
 input[type="number"] {
     padding: 10px 6px;
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
@@ -129,6 +125,7 @@ input[type="number"] {
     border-radius: 6px;
     border: 2px solid #777;
     transition: all 0.15s ease-in-out;
+    width: 50%;
 
     &:focus {
         outline: none;
@@ -146,15 +143,15 @@ input[type="submit"] {
     color: #fff;
     background-color: #0d6efd;
     display: block;
-    margin: 20px 0 0 0;
+    margin: 10px auto 0 auto;
     text-align: center;
     text-decoration: none;
     padding: 10px 6px;
     border-radius: 6px;
     border: none;
     font-size: 1rem;
-    width: 100%;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    width: 80%;
 
     &:hover {
         background-color: darken(#0d6efd, 10%);
